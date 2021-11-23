@@ -1,4 +1,5 @@
 require 'spec_helper'
+require './lib/farm/funcion'
 
 RSpec.describe Farm do
   it "has a version number" do
