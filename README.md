@@ -1,36 +1,35 @@
 # Farm
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/farm`. To experiment with that code, run `bin/console` for an interactive prompt.
+¡Bienvenido a tu nueva gema! En este directorio, encontrará los archivos que necesita para poder empaquetar su biblioteca Ruby en una gema. Pon tu código Ruby en el archivo `lib/farm`. Para experimentar con ese código, ejecute `bin/console` para obtener un mensaje interactivo.
 
-TODO: Delete this and the text above, and describe your gem
+## Instalación
 
-## Installation
-
-Add this line to your application's Gemfile:
+Agregue esta línea al Gemfile de su aplicación:
 
 ```ruby
 gem 'farm'
 ```
 
-And then execute:
+Y luego ejecuta:
 
     $ bundle install
 
-Or install it yourself as:
+O instálalo tu mismo de la siguiente manera:
 
     $ gem install farm
 
-## Usage
+## Desarrollo
 
-TODO: Write usage instructions here
+Después de verificar el repositorio, ejecute `bin/setup` para instalar las dependencias. Luego, ejecute `rake spec` para ejecutar las pruebas. También puede ejecutar `bin/console` para obtener un mensaje interactivo que le permitirá experimentar.
 
-## Development
+Para instalar esta gema en su máquina local, ejecute `bundle exec rake install`. Para lanzar una nueva versión, actualice el número de versión en `version.rb`, y luego ejecute` bundle exec rake release`, que creará una etiqueta git para la versión, enviará git commits y etiquetas, y luego enviará el `.gem` archivo a [rubygems.org] (https://rubygems.org).
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Contribuciones
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Los informes de errores y las pull requests son bienvenidos en GitHub en https://github.com/ULL-ESIT-LPP-2122/granja-alu0101206011.
 
-## Contributing
+# Clases de la gema
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ULL-ESIT-LPP-2122/granja-alu0101206011.
+## Clase Funcion
+Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.
 
