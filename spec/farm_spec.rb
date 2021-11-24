@@ -23,6 +23,10 @@ RSpec.describe Farm do
     it "Se espera un atributo para la reproducción de los animales" do
       expect(@funcionalidades_granja1.reproduccion).to eq("Vivíparo")
     end
+
+    it "Se espera que el método to_s no esté vacío" do
+      expect(@funcionalidades_granja1.to_s).not_to be(nil)
+    end
   end
 
   describe Farm::Datos do
