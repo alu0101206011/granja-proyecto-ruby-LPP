@@ -60,3 +60,18 @@ Es una de las clases de la gema. Esta clase tiene como función el representar l
 - id: atributo que contiene la identificación la granja.
 - nombre: atributo que contiene el nombre de la granja.
 - tipo: atributo que contiene el tipo de granja `(Tradicional, Comercial)`.
+- descripcion: atributo que contiene una descripción de la granja.
+
+```ruby
+module Farm
+  class Datos
+    attr_reader :id, :nombre, :tipo, :descripcion
+    def initialize(id, nombre, tipo, descripcion)
+      @id = id
+      @nombre = nombre
+      @tipo = tipo
+      @descripcion = descripcion
+    end
+  end
+end
+```
