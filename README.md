@@ -37,3 +37,4 @@ Es una de las clases de la gema. Esta describirá las funcionalidades de la gran
 
 - vida: atributo que representa las condiciones de vida de los animales (Excelente, Bien, Regular, Mal)
 - cuidados: atributo para los tipos de cuidados de los animales (Primarios, Especiales, Normales)
+- reproduccion: atributo para la reproducción de los animales (Vivíparos, Ovíparos, Ovovivíparos)
