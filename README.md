@@ -35,6 +35,22 @@ Es una de las clases de la gema. Esta describirá las funcionalidades de la gran
 
 ### Atributos
 
-- vida: atributo que representa las condiciones de vida de los animales (Excelente, Bien, Regular, Mal)
-- cuidados: atributo para los tipos de cuidados de los animales (Primarios, Especiales, Normales)
-- reproduccion: atributo para la reproducción de los animales (Vivíparos, Ovíparos, Ovovivíparos)
+- vida: atributo que representa las condiciones de vida de los animales (Excelente, Bien, Regular, Mal).
+- cuidados: atributo para los tipos de cuidados de los animales (Primarios, Especiales, Normales).
+- reproduccion: atributo para la reproducción de los animales (Vivíparos, Ovíparos, Ovovivíparos).
+
+```ruby
+module Farm
+  class Funcion
+    attr_reader :vida, :cuidados, :reproduccion
+    def initialize(vida, cuidados, reproduccion)
+      @vida = vida
+      @cuidados = cuidados
+      @reproduccion = reproduccion
+    end
+  end
+end
+```
+
+## Clase Datos
+Es una de las clases de la gema. Esta clase tiene como función el representar la granja propiamente dicha.
