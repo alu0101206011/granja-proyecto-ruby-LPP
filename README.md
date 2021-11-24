@@ -58,3 +58,4 @@ Es una de las clases de la gema. Esta clase tiene como función el representar l
 ### Atributos
 
 - id: atributo que contiene la identificación la granja.
+- nombre: atributo que contiene el nombre de la granja.
