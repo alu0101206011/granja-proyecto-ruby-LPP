@@ -7,5 +7,9 @@ module Farm
       @tipo = tipo
       @descripcion = descripcion
     end
+
+    def to_s 
+      return "Identificador de la granja: #{id}\nNombre de la granja: #{nombre}\nTipo de granja: #{tipo}\nDescripción: #{descripcion}"
+    end    
   end
 end
