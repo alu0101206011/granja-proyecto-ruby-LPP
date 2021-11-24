@@ -7,5 +7,12 @@ RSpec.describe Farm do
   end
 
   describe Funcion do
+    before :each do
+      @condiciones_vida = Funcion.new("Regular")
+    end
+
+    it "Se espera un atributo para las condiciones de vida de los animales" do
+      expect(@condiciones_vida.vida).to eq("Regular")
+    end
   end
 end
