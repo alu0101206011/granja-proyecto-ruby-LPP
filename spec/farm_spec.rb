@@ -8,7 +8,7 @@ RSpec.describe Farm do
 
   describe Farm::Funcion do
     before :each do
-      @funcionalidades_granja1 = Farm::Funcion.new("Regular", "Especiales")
+      @funcionalidades_granja1 = Farm::Funcion.new("Regular", "Especiales", "Vivíparo")
     end
 
     it "Se espera un atributo para las condiciones de vida de los animales" do
@@ -17,6 +17,10 @@ RSpec.describe Farm do
 
     it "Se espera un atributo para los tipos de cuidados que requieren los animales" do
       expect(@funcionalidades_granja1.cuidados).to eq("Especiales")
+    end
+
+    it "Se espera un atributo para la reproducción de los animales" do
+      expect(@funcionalidades_granja1.reproduccion).to eq("Vivíparo")
     end
   end
 end
