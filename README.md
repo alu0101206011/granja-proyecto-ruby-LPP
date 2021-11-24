@@ -33,3 +33,6 @@ Los informes de errores y las pull requests son bienvenidos en GitHub en https:/
 ## Clase Funcion
 Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.
 
+### Atributos
+
+- vida: Atributo que representa las condiciones de vida de los animales.
