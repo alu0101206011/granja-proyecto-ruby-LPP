@@ -65,10 +65,10 @@ end
 
 
 
-## Clase Datos
+# Clase Datos
 Es una de las clases de la gema. Esta clase tiene como función el representar la granja propiamente dicha.
 
-### Atributos
+## Atributos
 
 - id: atributo que contiene la identificación la granja.
 - nombre: atributo que contiene el nombre de la granja.
@@ -86,5 +86,16 @@ module Farm
       @descripcion = descripcion
     end
   end
+end
+```
+
+## Métodos
+
+### to_s
+Método que transforma el objeto en un string.
+
+```ruby
+def to_s
+  return "Identificador de la granja: #{id}\nNombre de la granja: #{nombre}\nTipo de granja: #{tipo}\nDescripción: #{descripcion}"
 end
 ```
