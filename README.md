@@ -30,10 +30,10 @@ Los informes de errores y las pull requests son bienvenidos en GitHub en https:/
 
 # Clases de la gema
 
-## Clase Funcion
+# Clase Funcion
 Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.
 
-### Atributos
+## Atributos
 
 - vida: atributo que representa las condiciones de vida de los animales `(Excelente, Bien, Regular, Mal)`.
 - cuidados: atributo para los tipos de cuidados de los animales `(Primarios, Especiales, Normales)`.
@@ -51,6 +51,19 @@ module Farm
   end
 end
 ```
+
+## Métodos
+
+### to_s
+Método que transforma el objeto en un string.
+
+```ruby
+def to_s 
+  return "Condiciones de vida: #{@vida}\nTipos de cuidados: #{@cuidados}\nReproducción: #{@reproduccion}"
+end
+```
+
+
 
 ## Clase Datos
 Es una de las clases de la gema. Esta clase tiene como función el representar la granja propiamente dicha.
