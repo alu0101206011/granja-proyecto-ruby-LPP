@@ -49,5 +49,9 @@ RSpec.describe Farm do
     it "Se espera un atributo que contenga una descripción de la granja" do
       expect(@datos_granja1.descripcion).to eq("Granja que tiene gallinas y vacas situada al norte de Tenerife.")
     end
+
+    it "Se espera que el método to_s contenga un string" do
+      expect(@datos_granja1.to_s).to eq("Identificador de la granja: 121\nNombre de la granja: Granja Labrador\nTipo de granja: Tradicional\nDescripción: Granja que tiene gallinas y vacas situada al norte de Tenerife.")
+    end
   end
 end
