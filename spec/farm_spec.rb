@@ -23,4 +23,7 @@ RSpec.describe Farm do
       expect(@funcionalidades_granja1.reproduccion).to eq("Vivíparo")
     end
   end
+
+  describe Farm::Datos do
+  end
 end
