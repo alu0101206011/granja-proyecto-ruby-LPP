@@ -54,3 +54,7 @@ end
 
 ## Clase Datos
 Es una de las clases de la gema. Esta clase tiene como función el representar la granja propiamente dicha.
+
+### Atributos
+
+- id: atributo que contiene la identificación la granja.
