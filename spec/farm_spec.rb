@@ -27,7 +27,7 @@ RSpec.describe Farm do
 
   describe Farm::Datos do
     before :each do
-      @datos_granja1 = Farm::Datos.new("121", "Granja Labrador")
+      @datos_granja1 = Farm::Datos.new("121", "Granja Labrador", "Tradicional")
     end   
 
     it "Se espera un atributo que contenga la identificación la granja" do
@@ -36,6 +36,10 @@ RSpec.describe Farm do
 
     it "Se espera un atributo que contenga el nombre de la granja" do
       expect(@datos_granja1.nombre).to eq("Granja Labrador")
+    end
+    
+    it "Se espera un atributo que contenga el tipo de granja" do
+      expect(@datos_granja1.tipo).to eq("Tradicional")
     end
   end
 end
