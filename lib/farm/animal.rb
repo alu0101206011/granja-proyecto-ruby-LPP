@@ -18,6 +18,8 @@ module Farm
       @peso = peso
     end
 
+
+    # Método que retorna un string con la información perfectamente formateada
     def to_s
       return "Animal con id: #{id}\nEdad (días): #{edad}\nSexo: #{sexo}\nPeso (gramos): #{peso}"
     end
