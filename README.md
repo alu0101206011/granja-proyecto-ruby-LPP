@@ -103,3 +103,17 @@ end
 
 # Clase Animal
 Clase para representar animales.
+
+## Atributos
+
+- id: atributo que contiene el identificador del animal.
+
+```ruby 
+module Farm
+  class Animal
+    attr_reader :id
+    def initialize(id)
+      @id = id
+    end
+  end
+```
