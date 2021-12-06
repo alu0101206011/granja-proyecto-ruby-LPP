@@ -159,3 +159,16 @@ module Farm
   end
 end
 ```
+
+## Métodos
+
+### to_s
+Usando `super` desde el método to_s se está llamando al método to_s de la clase padre Animal, 
+como este devuelve una string es tan fácil como concatenar esa salida con la nueva de ganado para que salga
+toda la información formateada.
+
+```ruby
+def to_s 
+  super + "\nGanado de raza: #{raza}\nTipo de aprovechamiento: #{aprovechamiento}\nTipo de alimentación #{alimentacion}"
+end
+```
