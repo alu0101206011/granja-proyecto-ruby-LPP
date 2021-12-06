@@ -8,7 +8,7 @@ RSpec.describe Farm do
     end   
 
     context "Representación de los Datos de una Granja - Granja::Datos" do
-      context "Atributos de la clase Datos"
+      context "Atributos de la clase Datos" do
         it "Se espera un atributo que contenga la identificación la granja" do
           expect(@datos_granja1.id).to eq("121")
         end 
@@ -27,6 +27,12 @@ RSpec.describe Farm do
 
         it "Se espera que el método to_s contenga un string" do
           expect(@datos_granja1.to_s).to eq("Identificador de la granja: 121\nNombre de la granja: Granja Labrador\nTipo de granja: Tradicional\nDescripción: Granja que tiene gallinas y vacas situada al norte de Tenerife.")
+        end
+      end
+      
+      context "Herencia de la clase Datos" do
+        it "Se espera que una instancia de la clase Datos sea un Datos" do
+          expect(@datos_granja1).to be_instance_of(Farm::Datos)
         end
       end
     end
