@@ -17,6 +17,10 @@ RSpec.describe Farm do
           expect(@ganado1.raza).to eq("caprino")
         end
 
+        it "Tiene un atributo para el tipo de aprovechamiento (carne, piel, leche)" do
+          expect(@ganado1.aprovechamiento).to eq("leche")
+        end
+        
 
       end
         
