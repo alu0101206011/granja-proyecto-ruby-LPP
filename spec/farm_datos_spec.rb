@@ -7,7 +7,7 @@ RSpec.describe Farm do
       @datos_granja1 = Farm::Datos.new("121", "Granja Labrador", "Tradicional", "Granja que tiene gallinas y vacas situada al norte de Tenerife.")
     end   
 
-    context "Representación de los Datos de una Granja - Granja::Datos" do
+    context "Representación de los Datos de una Granja - Farm::Datos" do
       context "Atributos de la clase Datos" do
         it "Se espera un atributo que contenga la identificación la granja" do
           expect(@datos_granja1.id).to eq("121")
