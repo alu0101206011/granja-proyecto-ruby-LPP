@@ -29,16 +29,23 @@ RSpec.describe Farm do
         it "Tiene un atributo para representar el peso del animal en gramos" do
           expect(@animal1.peso).to eq(10000)
         end
+      end
 
+      context "Atributos de clase de la clase Animal" do
+        it "Se espera contar el número de objetos que se han instanciado de Animal" do
+          expect(Farm::Animal.animal_count).to eq(6)
+        end
+      end
+
+      context "Métodos de instancia de la clase Animal" do
         it "Se espera una string con la información del animal correctamente formateada" do
           expect(@animal1.to_s).to eq("Animal con id: 1\nEdad (días): 400\nSexo: M\nPeso (gramos): 10000")
         end
       end
 
-      context "Atributos de clase de la clase Animal" do
-        it "Se espera contar el número de objetos que se han instanciado de Animal" do
-          expect(Farm::Animal.animal_count).to eq(7)
-        end
+      context "Métodos de clase de la clase Animal" do
+        
+
       end
 
       context "Herencia de la clase Animal" do 
