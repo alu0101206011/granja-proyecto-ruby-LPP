@@ -41,11 +41,15 @@ RSpec.describe Farm do
 
         it "Se espera que una instancia de la clase Datos sea un básico (BasicObject)" do
           expect(@datos_granja1).to be_kind_of(BasicObject)
-        end    
+        end
         
         it "No se espera que una instancia de la clase Datos sea una cadena (String)" do
           expect(@datos_granja1).not_to be_kind_of(String)
-        end            
+        end
+
+        it "No se espera que una instancia de la clase Datos sea un número (Numeric)" do
+          expect(@datos_granja1).not_to be_kind_of(Numeric)
+        end
       end
     end
   end
