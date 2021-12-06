@@ -104,8 +104,7 @@ end
 # Clase Animal
 Clase para representar animales.
 
-## Atributos
-
+## Atributos de instancia
 - id: atributo que contiene el identificador del animal.
 - edad: atributo para representar la edad del animal en días.
 - sexo: atributo para representar el sexo del animal.
@@ -124,7 +123,27 @@ module Farm
   end
 ```
 
-## Métodos
+## Atributos de ckase
+- animal_count: atributo creado para contar el número de objetos que se han instanciadon de la clase.
+
+```ruby 
+module Farm
+  class Animal
+    attr_reader :id, :edad, :sexo, :peso
+
+    @@animal_count = 0
+
+    def initialize(id, edad, sexo, peso)
+      @id = id
+      @edad = edad
+      @sexo = sexo
+      @peso = peso
+      @@animal_count += 1
+    end
+  end
+```
+
+## Métodos de instancia
 
 ### to_s
 Retorna una cadena con la información de la clase Animal correctamente formateada
@@ -132,6 +151,17 @@ Retorna una cadena con la información de la clase Animal correctamente formatea
 ```ruby
 def to_s
   return "Animal con id: #{id}\nEdad (días): #{edad}\nSexo: #{sexo}\nPeso (gramos): #{peso}"
+end
+```
+
+## Métodos de clase
+
+### self.animal_count
+Como los atributos de clase no son visibles fuera de la clase, se necesita crear un método de clase animal_count que retorne el atributo de clase `@@animal_count`.
+
+```ruby
+def self.animal_count
+  @@animal_count
 end
 ```
 
