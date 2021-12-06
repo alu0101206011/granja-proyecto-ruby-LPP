@@ -144,15 +144,17 @@ Esta clase contiene todos los atributos del padre (Animal)
 Y a continuación contiene los siguientes atributos:
 - raza: atributo para representar la raza del animal.
 - aprovechamiento: atributo para representar el tipo de aprovechamiento (carne, piel, leche)
+- alimentacion: atributo para representar el tipo de alimentación (hervívoro, omnívoro)
 
 ```ruby
 module Farm
   class Ganado < Animal
-    attr_reader :raza, :aprovechamiento
-    def initialize(id, edad, sexo, peso, raza, aprovechamiento)
+    attr_reader :raza, :aprovechamiento, alimentacion
+    def initialize(id, edad, sexo, peso, raza, aprovechamiento, alimentacion)
       super(id, edad, sexo, peso)
       @raza = raza
       @aprovechamiento = aprovechamiento
+      @alimentacion = alimentacion
     end
   end
 end
