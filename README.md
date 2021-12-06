@@ -99,3 +99,7 @@ def to_s
   return "Identificador de la granja: #{id}\nNombre de la granja: #{nombre}\nTipo de granja: #{tipo}\nDescripción: #{descripcion}"
 end
 ```
+
+
+# Clase Animal
+Clase para representar animales.
