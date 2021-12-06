@@ -8,7 +8,7 @@ RSpec.describe Farm do
         @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
       end  
       
-      context "Atributos de la clase Ganado" do
+      context "Atributos de instancia de la clase Ganado" do
         it "Tiene una clase para representar ganado" do
           expect(@ganado1).to be_kind_of(Farm::Ganado)
         end
@@ -24,7 +24,9 @@ RSpec.describe Farm do
         it "Tiene un atributo para su tipo de alimentación (herbívoro u omnívoro)" do
           expect(@ganado1.alimentacion).to eq("omnívoro")
         end
+      end
 
+      context "Métodos de instancia de la clase Ganado" do
         it "Se obtiene una cadena con la información del ganado correctamente formateada" do
           expect(@ganado1.to_s).to eq("Animal con id: 1\nEdad (días): 400\nSexo: M\nPeso (gramos): 15000\nGanado de raza: caprino\nTipo de aprovechamiento: leche\nTipo de alimentación omnívoro")
         end
