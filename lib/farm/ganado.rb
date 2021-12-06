@@ -4,7 +4,6 @@ module Farm
   # Clase Ganado
   # Contiene información sobre el ganado. Es una clase heredada de Animal.
   class Ganado < Animal
-    include Comparable
     attr_reader :raza, :aprovechamiento, :alimentacion
 
     # Constructor
