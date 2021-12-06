@@ -6,6 +6,7 @@ RSpec.describe Farm do
     describe Farm::Animal do
       before :each do
         @animal1 = Farm::Animal.new(1, 400, "M", 10000)
+        @animal2 = Farm::Animal.new(2, 30, "F", 3000)
       end  
       
       context "Atributos de instancia de la clase Animal" do
@@ -33,7 +34,7 @@ RSpec.describe Farm do
 
       context "Atributos de clase de la clase Animal" do
         it "Se espera contar el número de objetos que se han instanciado de Animal" do
-          expect(Farm::Animal.animal_count).to eq(6)
+          expect(Farm::Animal.animal_count).to eq(12)
         end
       end
 
@@ -41,11 +42,10 @@ RSpec.describe Farm do
         it "Se espera una string con la información del animal correctamente formateada" do
           expect(@animal1.to_s).to eq("Animal con id: 1\nEdad (días): 400\nSexo: M\nPeso (gramos): 10000")
         end
-      end
 
-      context "Métodos de clase de la clase Animal" do
-        
-
+        it "Se espera que los animales sean comparables por su peso." do
+          expect(@animal1 < @animal2).to eq(false)
+        end
       end
 
       context "Herencia de la clase Animal" do 
