@@ -109,15 +109,17 @@ Clase para representar animales.
 - id: atributo que contiene el identificador del animal.
 - edad: atributo para representar la edad del animal en días.
 - sexo: atributo para representar el sexo del animal.
+- peso: atributo para representar el peso del animal en gramos.
 
 ```ruby 
 module Farm
   class Animal
-    attr_reader :id, :edad, :sexo
-    def initialize(id, edad, sexo)
+    attr_reader :id, :edad, :sexo, :peso
+    def initialize(id, edad, sexo, peso)
       @id = id
       @edad = edad
       @sexo = sexo
+      @peso = peso
     end
   end
 ```
