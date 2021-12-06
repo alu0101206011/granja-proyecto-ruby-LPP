@@ -6,6 +6,7 @@ RSpec.describe Farm do
     describe Farm::Ganado do
       before :each do
         @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
+        @ganado2 = Farm::Ganado.new(1, 235, "M", 40000, "bovino", "leche", "herbívoro")
       end  
       
       context "Atributos de instancia de la clase Ganado" do
@@ -29,6 +30,10 @@ RSpec.describe Farm do
       context "Métodos de instancia de la clase Ganado" do
         it "Se obtiene una cadena con la información del ganado correctamente formateada" do
           expect(@ganado1.to_s).to eq("Animal con id: 1\nEdad (días): 400\nSexo: M\nPeso (gramos): 15000\nGanado de raza: caprino\nTipo de aprovechamiento: leche\nTipo de alimentación omnívoro")
+        end
+
+        it "Se espera que el ganado sea comparable por su edad." do
+          expect(@ganado1 < @ganado2).to eq(false)
         end
       end
 
