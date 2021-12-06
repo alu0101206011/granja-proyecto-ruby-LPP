@@ -138,9 +138,20 @@ end
 # Ganado
 Clase heredada de Animal creada para representar Ganado.
 
+## Atributos
+Esta clase contiene todos los atributos del padre (Animal)
+
+Y a continuación contiene los siguientes atributos:
+- raza: atributo para representar la raza del animal
+
 ```ruby
 module Farm
   class Ganado < Animal
+    attr_reader :raza
+    def initialize(id, edad, sexo, peso, raza)
+      super(id, edad, sexo, peso)
+      @raza = raza
+    end
   end
 end
 ```
