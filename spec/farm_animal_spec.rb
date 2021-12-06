@@ -39,6 +39,10 @@ RSpec.describe Farm do
         it "Se espera que una instancia de la clase Animal sea un Animal" do
           expect(@animal1).to be_instance_of(Farm::Animal)
         end
+
+        it "Se espera que una instancia de la clase Animal sea un objeto (Object)" do
+          expect(@animal1.is_a? Object).to be(true)
+        end
       end   
     end
   end
