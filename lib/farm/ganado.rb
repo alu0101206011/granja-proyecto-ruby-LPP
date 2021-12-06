@@ -17,5 +17,9 @@ module Farm
       @aprovechamiento = aprovechamiento
       @alimentacion = alimentacion
     end
+
+    def to_s 
+      super + "\nGanado de raza: #{raza}\nTipo de aprovechamiento: #{aprovechamiento}\nTipo de alimentación #{alimentacion}"
+    end
   end
 end
