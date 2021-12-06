@@ -4,6 +4,7 @@ module Farm
   # Clase Ganado
   # Contiene información sobre el ganado. Es una clase heredada de Animal.
   class Ganado < Animal
+    include Comparable
     attr_reader :raza, :aprovechamiento, :alimentacion
 
     # Constructor
@@ -20,6 +21,10 @@ module Farm
 
     def to_s 
       super + "\nGanado de raza: #{raza}\nTipo de aprovechamiento: #{aprovechamiento}\nTipo de alimentación #{alimentacion}"
+    end
+
+    def <=>(other)
+      return edad <=> other.edad
     end
   end
 end
