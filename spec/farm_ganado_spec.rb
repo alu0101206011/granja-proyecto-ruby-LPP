@@ -34,6 +34,7 @@ RSpec.describe Farm do
 
         it "Se espera que el ganado sea comparable por su edad." do
           expect(@ganado1 < @ganado2).to eq(false)
+          expect(@ganado1 >= @ganado2).to eq(true)
         end
       end
 
