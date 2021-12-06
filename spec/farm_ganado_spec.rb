@@ -38,6 +38,10 @@ RSpec.describe Farm do
         it "Se espera que una instancia de la clase Ganado sea un Animal" do
           expect(@ganado1).to be_kind_of(Farm::Animal)
         end
+
+        it "Se espera que una instancia de la clase Ganado sea un objeto (Object)" do
+          expect(@ganado1).to be_kind_of(Object)
+        end
       end
     end
   end
