@@ -5,7 +5,7 @@ RSpec.describe Farm do
   context "Representación de un ganado - Farm::Ganado" do
     describe Farm::Ganado do
       before :each do
-        @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche")
+        @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
       end  
       
       context "Atributos de la clase Ganado" do
@@ -19,6 +19,10 @@ RSpec.describe Farm do
 
         it "Tiene un atributo para el tipo de aprovechamiento (carne, piel, leche)" do
           expect(@ganado1.aprovechamiento).to eq("leche")
+        end
+
+        it "Tiene un atributo para su tipo de alimentación (herbívoro u omnívoro)" do
+          expect(@ganado1.alimentacion).to eq("omnívoro")
         end
 
       end
