@@ -92,7 +92,7 @@ end
 ## Métodos
 
 ### to_s
-Método que transforma el objeto en un string.
+Retorna una cadena con la información de la clase Datos correctamente formateada.
 
 ```ruby
 def to_s
@@ -122,4 +122,15 @@ module Farm
       @peso = peso
     end
   end
+```
+
+## Métodos
+
+### to_s
+Retorna una cadena con la información de la clase Animal correctamente formateada
+
+```ruby
+def to_s
+  return "Animal con id: #{id}\nEdad (días): #{edad}\nSexo: #{sexo}\nPeso (gramos): #{peso}"
+end
 ```
