@@ -35,6 +35,11 @@ RSpec.describe Farm do
         end
       end
 
+      context "Herencia de la clase Animal" do 
+        it "Se espera que una instancia de la clase Animal sea un Animal" do
+          expect(@animal1).to be_instance_of(Farm::Animal)
+        end
+      end   
     end
   end
 end
