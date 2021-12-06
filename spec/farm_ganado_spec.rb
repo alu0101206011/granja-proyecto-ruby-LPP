@@ -25,6 +25,10 @@ RSpec.describe Farm do
           expect(@ganado1.alimentacion).to eq("omnívoro")
         end
 
+        it "Se obtiene una cadena con la información del ganado correctamente formateada" do
+          expect(@ganado1.to_s).to eq("Animal con id: 1\nEdad (días): 400\nSexo: M\nPeso (gramos): 15000\nGanado de raza: caprino\nTipo de aprovechamiento: leche\nTipo de alimentación omnívoro")
+        end
+
       end
     end
   end
