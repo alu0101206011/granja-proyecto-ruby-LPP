@@ -51,6 +51,10 @@ RSpec.describe Farm do
         it "No se espera que una instancia de la clase Animal sea una cadena (String)" do
           expect(@animal1.is_a? String).not_to be(true)
         end
+
+        it "No se espera que una instancia de la clase Animal sea un número (Numeric)" do
+          expect(@animal1.is_a? Numeric).not_to be(true)
+        end
       end   
     end
   end
