@@ -4,6 +4,7 @@ module Farm
   # Clase Animal
   # Contiene información sobre animales
   class Animal
+    include Comparable
     attr_reader :id, :edad, :sexo, :peso
 
     # Atributo de clase para contar el número de  de objetos que se instancia de la clase.
@@ -32,5 +33,8 @@ module Farm
       @@animal_count
     end
 
+    def <(other)
+      return peso < other.peso
+    end
   end
 end
