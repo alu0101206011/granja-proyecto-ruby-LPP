@@ -8,7 +8,7 @@ RSpec.describe Farm do
         @animal1 = Farm::Animal.new(1, 400, "M", 10000)
       end  
       
-      context "Atributos de la clase Animal" do
+      context "Atributos de instancia de la clase Animal" do
         it "Tiene una clase para representar animales" do
           expect(@animal1).not_to be_nil
           expect(@animal1).to be_kind_of(Farm::Animal)
@@ -35,6 +35,12 @@ RSpec.describe Farm do
         end
       end
 
+      context "Atributos de clase de la clase Animal" do
+        it "Se espera contar el número de objetos que se han instanciado de Animal" do
+          expect(Farm::Animal.animal_count).to eq(7)
+        end
+      end
+
       context "Herencia de la clase Animal" do 
         it "Se espera que una instancia de la clase Animal sea un Animal" do
           expect(@animal1).to be_instance_of(Farm::Animal)
@@ -55,7 +61,7 @@ RSpec.describe Farm do
         it "No se espera que una instancia de la clase Animal sea un número (Numeric)" do
           expect(@animal1.is_a? Numeric).not_to be(true)
         end
-      end   
+      end
     end
   end
 end
