@@ -2,7 +2,7 @@ require 'spec_helper'
 require './lib/farm/animal'
 
 RSpec.describe Farm do
-  context "Representación de un Animal - Granja::Animal" do
+  context "Representación de un Animal - Farm::Animal" do
     describe Farm::Animal do
       before :each do
         @animal1 = Farm::Animal.new(1, 400, "M", 10000)
