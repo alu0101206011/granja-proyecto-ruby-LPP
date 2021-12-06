@@ -47,6 +47,10 @@ RSpec.describe Farm do
         it "Se espera que una instancia de la clase Animal sea un objeto básico (BasicObject)" do
           expect(@animal1.is_a? BasicObject).to be(true)
         end
+
+        it "No se espera que una instancia de la clase Animal sea una cadena (String)" do
+          expect(@animal1.is_a? String).not_to be(true)
+        end
       end   
     end
   end
