@@ -17,5 +17,9 @@ module Farm
       @sexo = sexo
       @peso = peso
     end
+
+    def to_s
+      return "Animal con id: #{id}\nEdad (días): #{edad}\nSexo: #{sexo}\nPeso (gramos): #{peso}"
+    end
   end
 end
