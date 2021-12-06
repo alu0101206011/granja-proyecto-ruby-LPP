@@ -123,7 +123,7 @@ module Farm
   end
 ```
 
-## Atributos de ckase
+## Atributos de clase
 - animal_count: atributo creado para contar el número de objetos que se han instanciadon de la clase.
 
 ```ruby 
@@ -151,6 +151,15 @@ Retorna una cadena con la información de la clase Animal correctamente formatea
 ```ruby
 def to_s
   return "Animal con id: #{id}\nEdad (días): #{edad}\nSexo: #{sexo}\nPeso (gramos): #{peso}"
+end
+```
+
+### <=>
+Método usando el módulo comparable usado para poder comparar a los animales por su peso.
+
+```ruby
+def <=>(other)
+  return peso <=> other.peso
 end
 ```
 
@@ -200,5 +209,14 @@ toda la información formateada.
 ```ruby
 def to_s 
   super + "\nGanado de raza: #{raza}\nTipo de aprovechamiento: #{aprovechamiento}\nTipo de alimentación #{alimentacion}"
+end
+```
+
+### <=>
+Método usando el módulo comparable usado para poder comparar al ganado por su edad.
+
+```ruby
+def <=>(other)
+  return edad <=> edad.peso
 end
 ```
