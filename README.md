@@ -238,3 +238,14 @@ CONDICIONES_VIDA = ["campo abierto", "establo"]
 ```
 Constante para representar las condiciones de vida (campo abierto, establo)
 
+
+## Funciones
+```ruby
+def self.cuidados (estado)
+  return estado
+end
+```
+
+Es un procedimiento para establecer los cuidados de los animales.
+
+Tiene que ser self para que sea propio del módulo.
