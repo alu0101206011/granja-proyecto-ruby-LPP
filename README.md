@@ -231,3 +231,10 @@ module Farm
   end
 end
 ```
+
+## Constantes
+```ruby
+CONDICIONES_VIDA = ["campo abierto", "establo"]
+```
+Constante para representar las condiciones de vida (campo abierto, establo)
+
