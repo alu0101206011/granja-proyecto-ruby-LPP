@@ -240,6 +240,7 @@ Constante para representar las condiciones de vida (campo abierto, establo)
 
 
 ## Funciones
+### cuidados
 ```ruby
 def self.cuidados (estado)
   return estado
@@ -249,3 +250,13 @@ end
 Es un procedimiento para establecer los cuidados de los animales.
 
 Tiene que ser self para que sea propio del módulo.
+
+
+### reproduccion
+```ruby
+def self.reproduccion (estado)
+  return estado
+end
+```
+Es un procedimiento para establecer la reproducción de los animales.
+
