@@ -3,25 +3,11 @@ require './lib/farm/funcion'
 
 RSpec.describe Farm do
   describe Farm::Funcion do
-    before :each do
-      @funcionalidades_granja1 = Farm::Funcion.new("Regular", "Especiales", "Vivíparo")
-    end
-
-    context "El funcionamiento de la granja: " do
-      it "Se espera un atributo para las condiciones de vida de los animales" do
-        expect(@funcionalidades_granja1.vida).to eq("Regular")
-      end
-
-      it "Se espera un atributo para los tipos de cuidados que requieren los animales" do
-        expect(@funcionalidades_granja1.cuidados).to eq("Especiales")
-      end
-
-      it "Se espera un atributo para la reproducción de los animales" do
-        expect(@funcionalidades_granja1.reproduccion).to eq("Vivíparo")
-      end
-
-      it "Se espera que el método to_s no esté vacío" do
-        expect(@funcionalidades_granja1.to_s).not_to be(nil)
+    context "Interfaz de las funcionalidades - Farm::Funcion" do
+      context "Componentes del módulo Funcion" do
+        it "Existe un módulo para almacenar las funcionalidades" do
+          expect(Farm::Funcion).to be_instance_of(Module)
+        end
       end
     end
   end
