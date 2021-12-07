@@ -9,5 +9,9 @@ module Farm
     def self.cuidados (estado)
       return estado
     end
+
+    def self.reproduccion (estado)
+      return estado
+    end
   end
 end
