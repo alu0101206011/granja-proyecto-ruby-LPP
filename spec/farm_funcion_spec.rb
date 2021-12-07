@@ -14,7 +14,7 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para establecer los cuidados de los animales" do
-          expect(Farm::Funcion::CUIDADOS("Bueno")).to eq("Bueno")
+          expect(Farm::Funcion::cuidados("Bueno")).to eq("Bueno")
         end
       end
     end

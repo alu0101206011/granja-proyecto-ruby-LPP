@@ -5,5 +5,9 @@ module Farm
   # Contiene las funcionalidades de la granja
   module Funcion
     CONDICIONES_VIDA = ["campo abierto", "establo"]
+
+    def self.cuidados (estado)
+      return estado
+    end
   end
 end
