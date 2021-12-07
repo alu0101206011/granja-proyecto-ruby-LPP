@@ -220,3 +220,14 @@ def <=>(other)
   return edad <=> edad.peso
 end
 ```
+
+# Module Funcion
+Módulo para representar las funcionalidades de una granja mediante
+un módulo.
+
+```ruby
+module Farm
+  module Funcion
+  end
+end
+```
