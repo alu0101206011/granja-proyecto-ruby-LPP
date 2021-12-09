@@ -7,10 +7,10 @@ module Farm
     attr_reader :id, :nombre, :tipo, :descripcion
     
     # Constructor
-    # @param [id] integer Contiene el identificador de la granja
-    # @param [nombre] string Contiene el nombre de la granja
-    # @param [tipo] string Contiene el tipo de granja
-    # @param [descripcion] string Contiene una descripcion sobre la granja
+    # @param [integer] id Contiene el identificador de la granja
+    # @param [string] nombre Contiene el nombre de la granja
+    # @param [string] tipo Contiene el tipo de granja
+    # @param [string] descripcion Contiene una descripcion sobre la granja
     def initialize(id, nombre, tipo, descripcion)
       @id = id
       @nombre = nombre

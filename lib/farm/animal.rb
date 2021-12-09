@@ -4,7 +4,6 @@ module Farm
   # Clase Animal
   # Contiene información sobre animales
   class Animal
-    # include comparable module
     include Comparable
     attr_reader :id, :edad, :sexo, :peso
 
@@ -12,10 +11,10 @@ module Farm
     @@animal_count = 0
 
     # Constructor
-    # @param [id] integer Contiene el identificador del animal
-    # @param [edad] integer Contiene la edad del animal en días
-    # @param [sexo] string Contiene el sexo del animal
-    # @param [peso] integer Contiene el peso del animal en gramos
+    # @param [integer] id Contiene el identificador del animal
+    # @param [integer] edad Contiene la edad del animal en días
+    # @param [string] sexo Contiene el sexo del animal
+    # @param [integer] peso Contiene el peso del animal en gramos
     def initialize(id, edad, sexo, peso)
       @id = id
       @edad = edad
@@ -34,6 +33,7 @@ module Farm
       @@animal_count
     end
 
+    # Método para el módulo comparable
     def <=>(other)
       return peso <=> other.peso
     end

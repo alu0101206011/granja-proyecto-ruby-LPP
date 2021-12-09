@@ -60,44 +60,115 @@
       <div id="content"><div id='filecontents'>
 <h1 id="label-Farm">Farm</h1>
 
-<p>Welcome to your new gem! In this directory, you&#39;ll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file <code>lib/farm</code>. To experiment with that code, run <code>bin/console</code> for an interactive prompt.</p>
+<p>¡Bienvenido a tu nueva gema! En este directorio, encontrará los archivos que necesita para poder empaquetar su biblioteca Ruby en una gema. Pon tu código Ruby en el archivo <code>lib/farm</code>. Para experimentar con ese código, ejecute <code>bin/console</code> para obtener un mensaje interactivo.</p>
 
-<p>TODO: Delete this and the text above, and describe your gem</p>
+<h2 id="label-Instalaci-C3-B3n">Instalación</h2>
 
-<h2 id="label-Installation">Installation</h2>
-
-<p>Add this line to your application&#39;s Gemfile:</p>
+<p>Agregue esta línea al Gemfile de su aplicación:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>farm</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
-<p>And then execute:</p>
+<p>Y luego ejecuta:</p>
 
 <pre class="code ruby"><code class="ruby">$ bundle install
 </code></pre>
 
-<p>Or install it yourself as:</p>
+<p>O instálalo tu mismo de la siguiente manera:</p>
 
 <pre class="code ruby"><code class="ruby">$ gem install farm
 </code></pre>
 
-<h2 id="label-Usage">Usage</h2>
+<h2 id="label-Desarrollo">Desarrollo</h2>
 
-<p>TODO: Write usage instructions here</p>
+<p>Después de verificar el repositorio, ejecute <code>bin/setup</code> para instalar las dependencias. Luego, ejecute <code>rake spec</code> para ejecutar las pruebas. También puede ejecutar <code>bin/console</code> para obtener un mensaje interactivo que le permitirá experimentar.</p>
 
-<h2 id="label-Development">Development</h2>
+<p>Para instalar esta gema en su máquina local, ejecute <code>bundle exec rake install</code>. Para lanzar una nueva versión, actualice el número de versión en <code>version.rb</code>, y luego ejecute<code>bundle exec rake release</code>, que creará una etiqueta git para la versión, enviará git commits y etiquetas, y luego enviará el <code>.gem</code> archivo a [rubygems.org] (<a href="https://rubygems.org">rubygems.org</a>).</p>
 
-<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+<h2 id="label-Contribuciones">Contribuciones</h2>
 
-<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and tags, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+<p>Los informes de errores y las pull requests son bienvenidos en GitHub en <a href="https://github.com/ULL-ESIT-LPP-2122/granja-alu0101206011">github.com/ULL-ESIT-LPP-2122/granja-alu0101206011</a>.</p>
 
-<h2 id="label-Contributing">Contributing</h2>
+<h1 id="label-Clases+de+la+gema">Clases de la gema</h1>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/ULL-ESIT-LPP-2122/granja-alu0101206011">github.com/ULL-ESIT-LPP-2122/granja-alu0101206011</a>.</p>
+<h1 id="label-Clase+Funcion">Clase Funcion</h1>
+
+<p>Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.</p>
+
+<h2 id="label-Atributos">Atributos</h2>
+<ul><li>
+<p>vida: atributo que representa las condiciones de vida de los animales <code>(Excelente, Bien, Regular, Mal)</code>.</p>
+</li><li>
+<p>cuidados: atributo para los tipos de cuidados de los animales <code>(Primarios, Especiales, Normales)</code>.</p>
+</li><li>
+<p>reproduccion: atributo para la reproducción de los animales <code>(Vivíparos, Ovíparos, Ovovivíparos)</code>.</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
+  <span class='kw'>class</span> <span class='const'>Funcion</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:vida</span><span class='comma'>,</span> <span class='symbol'>:cuidados</span><span class='comma'>,</span> <span class='symbol'>:reproduccion</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_vida'>vida</span><span class='comma'>,</span> <span class='id identifier rubyid_cuidados'>cuidados</span><span class='comma'>,</span> <span class='id identifier rubyid_reproduccion'>reproduccion</span><span class='rparen'>)</span>
+      <span class='ivar'>@vida</span> <span class='op'>=</span> <span class='id identifier rubyid_vida'>vida</span>
+      <span class='ivar'>@cuidados</span> <span class='op'>=</span> <span class='id identifier rubyid_cuidados'>cuidados</span>
+      <span class='ivar'>@reproduccion</span> <span class='op'>=</span> <span class='id identifier rubyid_reproduccion'>reproduccion</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-M-C3-A9todos">Métodos</h2>
+
+<h3 id="label-to_s">to_s</h3>
+
+<p>Método que transforma el objeto en un string.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span> 
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Condiciones de vida: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@vida</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nTipos de cuidados: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@cuidados</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nReproducción: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@reproduccion</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h1 id="label-Clase+Datos">Clase Datos</h1>
+
+<p>Es una de las clases de la gema. Esta clase tiene como función el representar la granja propiamente dicha.</p>
+
+<h2 id="label-Atributos">Atributos</h2>
+<ul><li>
+<p>id: atributo que contiene la identificación la granja.</p>
+</li><li>
+<p>nombre: atributo que contiene el nombre de la granja.</p>
+</li><li>
+<p>tipo: atributo que contiene el tipo de granja <code>(Tradicional, Comercial)</code>.</p>
+</li><li>
+<p>descripcion: atributo que contiene una descripción de la granja.</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
+  <span class='kw'>class</span> <span class='const'>Datos</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:id</span><span class='comma'>,</span> <span class='symbol'>:nombre</span><span class='comma'>,</span> <span class='symbol'>:tipo</span><span class='comma'>,</span> <span class='symbol'>:descripcion</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_nombre'>nombre</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo'>tipo</span><span class='comma'>,</span> <span class='id identifier rubyid_descripcion'>descripcion</span><span class='rparen'>)</span>
+      <span class='ivar'>@id</span> <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span>
+      <span class='ivar'>@nombre</span> <span class='op'>=</span> <span class='id identifier rubyid_nombre'>nombre</span>
+      <span class='ivar'>@tipo</span> <span class='op'>=</span> <span class='id identifier rubyid_tipo'>tipo</span>
+      <span class='ivar'>@descripcion</span> <span class='op'>=</span> <span class='id identifier rubyid_descripcion'>descripcion</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-M-C3-A9todos">Métodos</h2>
+
+<h3 id="label-to_s">to_s</h3>
+
+<p>Método que transforma el objeto en un string.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Identificador de la granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nNombre de la granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nombre'>nombre</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nTipo de granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tipo'>tipo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nDescripción: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_descripcion'>descripcion</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Nov 26 12:48:09 2021 by
+  Generated on Thu Dec  9 21:45:35 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
