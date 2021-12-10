@@ -92,10 +92,171 @@ end
 ## Métodos
 
 ### to_s
-Método que transforma el objeto en un string.
+Retorna una cadena con la información de la clase Datos correctamente formateada.
 
 ```ruby
 def to_s
   return "Identificador de la granja: #{id}\nNombre de la granja: #{nombre}\nTipo de granja: #{tipo}\nDescripción: #{descripcion}"
 end
 ```
+
+
+# Clase Animal
+Clase para representar animales.
+
+## Atributos de instancia
+- id: atributo que contiene el identificador del animal.
+- edad: atributo para representar la edad del animal en días.
+- sexo: atributo para representar el sexo del animal.
+- peso: atributo para representar el peso del animal en gramos.
+
+```ruby 
+module Farm
+  class Animal
+    attr_reader :id, :edad, :sexo, :peso
+    def initialize(id, edad, sexo, peso)
+      @id = id
+      @edad = edad
+      @sexo = sexo
+      @peso = peso
+    end
+  end
+```
+
+## Atributos de clase
+- animal_count: atributo creado para contar el número de objetos que se han instanciadon de la clase.
+
+```ruby 
+module Farm
+  class Animal
+    attr_reader :id, :edad, :sexo, :peso
+
+    @@animal_count = 0
+
+    def initialize(id, edad, sexo, peso)
+      @id = id
+      @edad = edad
+      @sexo = sexo
+      @peso = peso
+      @@animal_count += 1
+    end
+  end
+```
+
+## Métodos de instancia
+
+### to_s
+Retorna una cadena con la información de la clase Animal correctamente formateada
+
+```ruby
+def to_s
+  return "Animal con id: #{id}\nEdad (días): #{edad}\nSexo: #{sexo}\nPeso (gramos): #{peso}"
+end
+```
+
+### <=>
+Método usando el módulo comparable usado para poder comparar a los animales por su peso.
+
+```ruby
+def <=>(other)
+  return peso <=> other.peso
+end
+```
+
+## Métodos de clase
+
+### self.animal_count
+Como los atributos de clase no son visibles fuera de la clase, se necesita crear un método de clase animal_count que retorne el atributo de clase `@@animal_count`.
+
+```ruby
+def self.animal_count
+  @@animal_count
+end
+```
+
+# Ganado
+Clase heredada de Animal creada para representar Ganado.
+
+## Atributos
+Esta clase contiene todos los atributos del padre (Animal)
+
+Y a continuación contiene los siguientes atributos:
+- raza: atributo para representar la raza del animal.
+- aprovechamiento: atributo para representar el tipo de aprovechamiento (carne, piel, leche)
+- alimentacion: atributo para representar el tipo de alimentación (hervívoro, omnívoro)
+
+```ruby
+module Farm
+  class Ganado < Animal
+    attr_reader :raza, :aprovechamiento, alimentacion
+    def initialize(id, edad, sexo, peso, raza, aprovechamiento, alimentacion)
+      super(id, edad, sexo, peso)
+      @raza = raza
+      @aprovechamiento = aprovechamiento
+      @alimentacion = alimentacion
+    end
+  end
+end
+```
+
+## Métodos
+
+### to_s
+Usando `super` desde el método to_s se está llamando al método to_s de la clase padre Animal, 
+como este devuelve una string es tan fácil como concatenar esa salida con la nueva de ganado para que salga
+toda la información formateada.
+
+```ruby
+def to_s 
+  super + "\nGanado de raza: #{raza}\nTipo de aprovechamiento: #{aprovechamiento}\nTipo de alimentación #{alimentacion}"
+end
+```
+
+### <=>
+Método usando el módulo comparable usado para poder comparar al ganado por su edad.
+
+```ruby
+def <=>(other)
+  return edad <=> edad.peso
+end
+```
+
+# Module Funcion
+Módulo para representar las funcionalidades de una granja mediante
+un módulo.
+
+```ruby
+module Farm
+  module Funcion
+  end
+end
+```
+
+## Constantes
+```ruby
+CONDICIONES_VIDA = ["campo abierto", "establo"]
+```
+Constante para representar las condiciones de vida (campo abierto, establo)
+
+
+## Funciones
+### cuidados
+```ruby
+def self.cuidados (estado)
+  return estado
+end
+```
+
+Es un procedimiento para establecer los cuidados de los animales.
+
+Tiene que ser self para que sea propio del módulo.
+
+
+### reproduccion
+```ruby
+def self.reproduccion (estado)
+  return estado
+end
+```
+Es un procedimiento para establecer la reproducción de los animales.
+
