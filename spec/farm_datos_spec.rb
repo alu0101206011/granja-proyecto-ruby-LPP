@@ -4,7 +4,7 @@ require './lib/farm/datos'
 RSpec.describe Farm do
   describe Farm::Datos do
     before :each do
-      @datos_granja1 = Farm::Datos.new("121", "Granja Labrador", "Tradicional", "Granja que tiene gallinas y vacas situada al norte de Tenerife.")
+      @datos_granja1 = Farm::Datos.new("121", "Granja Labrador", "ganadera", "Granja que tiene gallinas y vacas situada al norte de Tenerife.")
     end   
 
     context "Representación de los Datos de una Granja - Farm::Datos" do
@@ -26,7 +26,7 @@ RSpec.describe Farm do
         end
 
         it "Se obtiene una cadena con la información del animal correctamente formateada" do
-          expect(@datos_granja1.to_s).to eq("Identificador de la granja: 121\nNombre de la granja: Granja Labrador\nTipo de granja: Tradicional\nDescripción: Granja que tiene gallinas y vacas situada al norte de Tenerife.")
+          expect(@datos_granja1.to_s).to eq("Identificador de la granja: 121\nNombre de la granja: Granja Labrador\nTipo de granja: ganadera\nDescripción: Granja que tiene gallinas y vacas situada al norte de Tenerife.")
         end
       end
       

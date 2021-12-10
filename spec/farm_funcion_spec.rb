@@ -11,6 +11,7 @@ RSpec.describe Farm do
 
         it "Existe una constante para representar las condiciones de vida (campo abierto, establo)" do
           expect(Farm::Funcion::CONDICIONES_VIDA).to eq(["campo abierto", "establo"])
+          expect(Farm::Funcion::CONDICIONES_VIDA[0]).to eq("campo abierto")
         end
 
         it "Existe un procedimiento para establecer los cuidados de los animales" do
