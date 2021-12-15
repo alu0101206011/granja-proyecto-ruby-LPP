@@ -24,6 +24,10 @@ RSpec.describe Farm do
         it "Tiene un atributo para el número de animales de la granja" do
           expect(@granja_ganadera.numero_animales).to eq(2)
         end
+
+        it "Tiene un atributo para el precio unitario de los animales" do
+          expect(@granja_ganadera.precio_unitario).to eq(4.7)
+        end        
       end
 
       context "Herencia de la clase Ganadera" do
