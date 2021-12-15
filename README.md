@@ -103,9 +103,14 @@ end
 # Clase Ganadera
 Clase heredada de datos para representar los datos de una granja ganadera.
 
+## Atributos de instancia 
+- tipo_ganado: Contiene el tipo de ganado que se encuentra en la granja.
+
 ```ruby
 module Farm
   class Ganadera < Datos
+    super(id, nombre, tipo, descripcion)
+    @tipo_ganado = tipo_ganado
   end
 end
 ```
