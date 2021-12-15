@@ -100,6 +100,15 @@ def to_s
 end
 ```
 
+# Clase Ganadera
+Clase heredada de datos para representar los datos de una granja ganadera.
+
+```ruby
+module Farm
+  class Ganadera < Datos
+  end
+end
+```
 
 # Clase Animal
 Clase para representar animales.
