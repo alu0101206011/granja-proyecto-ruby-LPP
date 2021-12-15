@@ -106,13 +106,17 @@ Clase heredada de datos para representar los datos de una granja ganadera.
 ## Atributos de instancia 
 - tipo_ganado: Contiene el tipo de ganado que se encuentra en la granja (bovino, ovino, caprino o porcino).
 - destino: Contiene el destino del animal (leche, sacrificio).
+- numero_animales: Contiene el numero de animales de la granja
 
 ```ruby
 module Farm
   class Ganadera < Datos
-    super(id, nombre, tipo, descripcion)
-    @tipo_ganado = tipo_ganado
-    @descripcion = descripcion
+    def initialize(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales) 
+      super(id, nombre, tipo, descripcion)
+      @tipo_ganado = tipo_ganado
+      @destino = destino
+      @numero_animales = numero_animales
+    end
   end
 end
 ```
