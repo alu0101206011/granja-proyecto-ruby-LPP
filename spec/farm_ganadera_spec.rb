@@ -12,6 +12,10 @@ RSpec.describe Farm do
         it "Tiene una clase para almacenar los datos de la granja" do
           expect(@granja_ganadera.instance_of?Farm::Ganadera).to eq(true)
         end
+
+        it "Tiene un atributo para el tipo de ganado (bovino, ovino, caprino o porcino)" do
+          expect(@granja_ganadera.tipo_ganado).to eq("ovino")
+        end
       end
 
       context "Herencia de la clase Ganadera" do
