@@ -4,7 +4,7 @@ module Farm
   # Clase Ganadera
   # Clase para representar Ganadera
   class Ganadera < Datos
-    attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario
+    attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario, :precio_venta
 
     # Constructor
     # Usando super podemos usar los atributos del padre
@@ -12,12 +12,14 @@ module Farm
     # @param [string] destino Contiene el destino de los animales (leche, sacrificio)
     # @param [integer] numero_animales Contiene el numero de animales de la granja
     # @param [float] precio_unitario Contiene el precio unitario de los animales.
-    def initialize(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario) 
+    # @param [float] precio_venta Contiene el precio de venta de los animales
+    def initialize(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario, precio_venta) 
       super(id, nombre, tipo, descripcion)
       @tipo_ganado = tipo_ganado
       @destino = destino
       @numero_animales = numero_animales
       @precio_unitario = precio_unitario
+      @precio_venta = precio_venta
     end
   end
 end
