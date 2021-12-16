@@ -108,18 +108,20 @@ Clase heredada de datos para representar los datos de una granja ganadera.
 - destino: Contiene el destino del animal (leche, sacrificio).
 - numero_animales: Contiene el numero de animales de la granja
 - precio_unitario: Contiene el precio unitario de los animales.
+- precio_venta: Contiene el precio de venta de los animales
 
 ```ruby
 module Farm
   class Ganadera < Datos
-    attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario
+    attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario, :precio_venta
 
-    def initialize(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario) 
+    def initialize(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario, precio_venta) 
       super(id, nombre, tipo, descripcion)
       @tipo_ganado = tipo_ganado
       @destino = destino
       @numero_animales = numero_animales
       @precio_unitario = precio_unitario
+      @precio_venta = precio_venta
     end
   end
 end
