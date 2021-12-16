@@ -48,7 +48,23 @@ RSpec.describe Farm do
       context "Enumerable" do 
         it "Las granjas ganaderas han de ser Enumerables" do
           expect(@granja_ganadera.is_a?Enumerable).to eq(true)
-        end        
+        end
+
+        it "Se espera que alguno de los valores de la clase Ganadera sea Numeric" do
+          expect(@granja_ganadera.any?Numeric).to eq(true)
+        end
+
+        it "Se espera que todos los valores evaluados pertenecen a Numeric" do
+          expect(@granja_ganadera.all?Numeric).to eq(true)
+        end
+
+        it "Se espera el mínimo de los valores evaluados" do
+          expect(@granja_ganadera.min).to eq(2)
+        end
+
+        it "Se espera el máximo de los valores evaluados" do
+          expect(@granja_ganadera.max).to eq(10.21)
+        end
       end
 
       context "Herencia de la clase Ganadera" do
