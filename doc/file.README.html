@@ -159,16 +159,177 @@
 
 <h3 id="label-to_s">to_s</h3>
 
-<p>Método que transforma el objeto en un string.</p>
+<p>Retorna una cadena con la información de la clase Datos correctamente formateada.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Identificador de la granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nNombre de la granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nombre'>nombre</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nTipo de granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tipo'>tipo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nDescripción: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_descripcion'>descripcion</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span>
 </code></pre>
+
+<h1 id="label-Clase+Animal">Clase Animal</h1>
+
+<p>Clase para representar animales.</p>
+
+<h2 id="label-Atributos+de+instancia">Atributos de instancia</h2>
+<ul><li>
+<p>id: atributo que contiene el identificador del animal.</p>
+</li><li>
+<p>edad: atributo para representar la edad del animal en días.</p>
+</li><li>
+<p>sexo: atributo para representar el sexo del animal.</p>
+</li><li>
+<p>peso: atributo para representar el peso del animal en gramos.</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby">module Farm
+  class Animal
+    attr_reader :id, :edad, :sexo, :peso
+    def initialize(id, edad, sexo, peso)
+      @id = id
+      @edad = edad
+      @sexo = sexo
+      @peso = peso
+    end
+  end
+</code></pre>
+
+<h2 id="label-Atributos+de+clase">Atributos de clase</h2>
+<ul><li>
+<p>animal_count: atributo creado para contar el número de objetos que se han instanciadon de la clase.</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby">module Farm
+  class Animal
+    attr_reader :id, :edad, :sexo, :peso
+
+    @@animal_count = 0
+
+    def initialize(id, edad, sexo, peso)
+      @id = id
+      @edad = edad
+      @sexo = sexo
+      @peso = peso
+      @@animal_count += 1
+    end
+  end
+</code></pre>
+
+<h2 id="label-M-C3-A9todos+de+instancia">Métodos de instancia</h2>
+
+<h3 id="label-to_s">to_s</h3>
+
+<p>Retorna una cadena con la información de la clase Animal correctamente formateada</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Animal con id: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nEdad (días): </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_edad'>edad</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nSexo: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sexo'>sexo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nPeso (gramos): </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_peso'>peso</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h3 id="label-3C-3D-3E">&lt;=&gt;</h3>
+
+<p>Método usando el módulo comparable usado para poder comparar a los animales por su peso.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_peso'>peso</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_peso'>peso</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-M-C3-A9todos+de+clase">Métodos de clase</h2>
+
+<h3 id="label-self.animal_count">self.animal_count</h3>
+
+<p>Como los atributos de clase no son visibles fuera de la clase, se necesita crear un método de clase animal_count que retorne el atributo de clase <code>@@animal_count</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_animal_count'>animal_count</span>
+  <span class='cvar'>@@animal_count</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h1 id="label-Ganado">Ganado</h1>
+
+<p>Clase heredada de Animal creada para representar Ganado.</p>
+
+<h2 id="label-Atributos">Atributos</h2>
+
+<p>Esta clase contiene todos los atributos del padre (Animal)</p>
+
+<p>Y a continuación contiene los siguientes atributos: - raza: atributo para representar la raza del animal. - aprovechamiento: atributo para representar el tipo de aprovechamiento (carne, piel, leche) - alimentacion: atributo para representar el tipo de alimentación (hervívoro, omnívoro)</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
+  <span class='kw'>class</span> <span class='const'>Ganado</span> <span class='op'>&lt;</span> <span class='const'>Animal</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:raza</span><span class='comma'>,</span> <span class='symbol'>:aprovechamiento</span><span class='comma'>,</span> <span class='id identifier rubyid_alimentacion'>alimentacion</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_edad'>edad</span><span class='comma'>,</span> <span class='id identifier rubyid_sexo'>sexo</span><span class='comma'>,</span> <span class='id identifier rubyid_peso'>peso</span><span class='comma'>,</span> <span class='id identifier rubyid_raza'>raza</span><span class='comma'>,</span> <span class='id identifier rubyid_aprovechamiento'>aprovechamiento</span><span class='comma'>,</span> <span class='id identifier rubyid_alimentacion'>alimentacion</span><span class='rparen'>)</span>
+      <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_edad'>edad</span><span class='comma'>,</span> <span class='id identifier rubyid_sexo'>sexo</span><span class='comma'>,</span> <span class='id identifier rubyid_peso'>peso</span><span class='rparen'>)</span>
+      <span class='ivar'>@raza</span> <span class='op'>=</span> <span class='id identifier rubyid_raza'>raza</span>
+      <span class='ivar'>@aprovechamiento</span> <span class='op'>=</span> <span class='id identifier rubyid_aprovechamiento'>aprovechamiento</span>
+      <span class='ivar'>@alimentacion</span> <span class='op'>=</span> <span class='id identifier rubyid_alimentacion'>alimentacion</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-M-C3-A9todos">Métodos</h2>
+
+<h3 id="label-to_s">to_s</h3>
+
+<p>Usando <code>super</code> desde el método to_s se está llamando al método to_s de la clase padre Animal, como este devuelve una string es tan fácil como concatenar esa salida con la nueva de ganado para que salga toda la información formateada.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span> 
+  <span class='kw'>super</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nGanado de raza: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_raza'>raza</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nTipo de aprovechamiento: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_aprovechamiento'>aprovechamiento</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nTipo de alimentación </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_alimentacion'>alimentacion</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h3 id="label-3C-3D-3E">&lt;=&gt;</h3>
+
+<p>Método usando el módulo comparable usado para poder comparar al ganado por su edad.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_edad'>edad</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_edad'>edad</span><span class='period'>.</span><span class='id identifier rubyid_peso'>peso</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h1 id="label-Module+Funcion">Module Funcion</h1>
+
+<p>Módulo para representar las funcionalidades de una granja mediante un módulo.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
+  <span class='kw'>module</span> <span class='const'>Funcion</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-Constantes">Constantes</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>CONDICIONES_VIDA</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>campo abierto</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>establo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+</code></pre>
+
+<p>Constante para representar las condiciones de vida (campo abierto, establo)</p>
+
+<h2 id="label-Funciones">Funciones</h2>
+
+<h3 id="label-cuidados">cuidados</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cuidados'>cuidados</span> <span class='lparen'>(</span><span class='id identifier rubyid_estado'>estado</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_estado'>estado</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Es un procedimiento para establecer los cuidados de los animales.</p>
+
+<p>Tiene que ser self para que sea propio del módulo.</p>
+
+<h3 id="label-reproduccion">reproduccion</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reproduccion'>reproduccion</span> <span class='lparen'>(</span><span class='id identifier rubyid_estado'>estado</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_estado'>estado</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Es un procedimiento para establecer la reproducción de los animales.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Dec  9 21:45:35 2021 by
+  Generated on Thu Dec 16 18:24:19 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>

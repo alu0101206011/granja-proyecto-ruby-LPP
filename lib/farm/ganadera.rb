@@ -29,6 +29,7 @@ module Farm
       @censo = censo
     end
 
+    # Método para formatear la información de la clase
     def to_s 
       s = super + "\nTipo de ganado: #{@tipo_ganado}\nDestino: #{@destino}\nNúmero de animales: #{@numero_animales}\nPrecio unitario: #{@precio_unitario}\nPrecio de venta: #{@precio_venta}\nCenso: [animal id: #{censo[0].id}"
       copycenso = @censo
@@ -36,6 +37,7 @@ module Farm
       s += "]"
     end
 
+    # Para Enumerable
     def each 
       yield @numero_animales
       yield @precio_unitario

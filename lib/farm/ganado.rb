@@ -28,6 +28,7 @@ module Farm
       return @edad <=> other.edad
     end
 
+    # Sobrecarga del operador suma
     def +(valor)
       return Ganado.new(@id, @edad + valor, @sexo, @peso, @raza, @aprovechamiento, @alimentacion)
     end

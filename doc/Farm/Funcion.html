@@ -119,6 +119,38 @@
         </dt>
         <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>campo abierto</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>establo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span></pre></dd>
       
+        <dt id="JAULA-constant" class="">JAULA =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Constante que contiene el sistema de gestion de los animales por jaula</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:jaula</span></pre></dd>
+      
+        <dt id="CAMPO_ABIERTO-constant" class="">CAMPO_ABIERTO =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Constante que contiene el sistema de gestion de los animales por campo abierto</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:campo_abierto</span></pre></dd>
+      
     </dl>
   
 
@@ -139,7 +171,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#cuidados-class_method" title="cuidados (class method)">.<strong>cuidados</strong>(estado)  &#x21d2; Object </a>
+      <a href="#cuidados-class_method" title="cuidados (class method)">.<strong>cuidados</strong>(cantidad_antibiotico, grupo)  &#x21d2; Object </a>
     
 
     
@@ -163,7 +195,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#reproduccion-class_method" title="reproduccion (class method)">.<strong>reproduccion</strong>(estado)  &#x21d2; Object </a>
+      <a href="#reproduccion-class_method" title="reproduccion (class method)">.<strong>reproduccion</strong>(dias, grupo)  &#x21d2; Object </a>
     
 
     
@@ -196,7 +228,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="cuidados-class_method">
   
-    .<strong>cuidados</strong>(estado)  &#x21d2; <tt>Object</tt> 
+    .<strong>cuidados</strong>(cantidad_antibiotico, grupo)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -211,7 +243,43 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>cantidad_antibiotico</span>
+      
+      
+        <span class='type'>(<tt>integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Cuanto aumentaremos la vida a nuestros queridos animales</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>grupo</span>
+      
+      
+        <span class='type'>(<tt>array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Grupo de ganado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -219,15 +287,15 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/farm/funcion.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/farm/funcion.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cuidados'>cuidados</span> <span class='lparen'>(</span><span class='id identifier rubyid_estado'>estado</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_estado'>estado</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cuidados'>cuidados</span> <span class='lparen'>(</span><span class='id identifier rubyid_cantidad_antibiotico'>cantidad_antibiotico</span><span class='comma'>,</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ganado'>ganado</span><span class='op'>|</span> <span class='id identifier rubyid_ganado'>ganado</span> <span class='op'>+</span> <span class='id identifier rubyid_cantidad_antibiotico'>cantidad_antibiotico</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -237,7 +305,7 @@
       <div class="method_details ">
   <h3 class="signature " id="reproduccion-class_method">
   
-    .<strong>reproduccion</strong>(estado)  &#x21d2; <tt>Object</tt> 
+    .<strong>reproduccion</strong>(dias, grupo)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -252,7 +320,43 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>dias</span>
+      
+      
+        <span class='type'>(<tt>integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Días mínimos para la reproducción</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>grupo</span>
+      
+      
+        <span class='type'>(<tt>array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Grupo de ganado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -260,15 +364,15 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/farm/funcion.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/farm/funcion.rb', line 26</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reproduccion'>reproduccion</span> <span class='lparen'>(</span><span class='id identifier rubyid_estado'>estado</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_estado'>estado</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reproduccion'>reproduccion</span> <span class='lparen'>(</span><span class='id identifier rubyid_dias'>dias</span><span class='comma'>,</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ganado'>ganado</span><span class='op'>|</span> <span class='id identifier rubyid_ganado'>ganado</span><span class='period'>.</span><span class='id identifier rubyid_edad'>edad</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_dias'>dias</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -280,7 +384,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Dec  9 21:45:35 2021 by
+  Generated on Thu Dec 16 18:24:19 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
