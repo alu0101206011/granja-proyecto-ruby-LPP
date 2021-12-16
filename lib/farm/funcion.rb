@@ -10,15 +10,17 @@ module Farm
     CAMPO_ABIERTO = :campo_abierto
 
     # Procedimiento para cuidados
-    # @param [integer] valor Cuanto aumentaremos la vida a nuestros queridos animales
+    # @param [integer] cantidad_antibiotico Cuanto aumentaremos la vida a nuestros queridos animales
     # @param [array] grupo Grupo de ganado
-    def self.cuidados (valor, grupo)
-      return grupo.map {|element| element + valor}
+    def self.cuidados (cantidad_antibiotico, grupo)
+      return grupo.map {|ganado| ganado + cantidad_antibiotico }
     end
 
     # Procedimiento para la reproduccion
-    def self.reproduccion (estado)
-      return estado
+    # @param [integer] dias Días mínimos para la reproducción
+    # @param [array] grupo Grupo de ganado
+    def self.reproduccion (dias, grupo)
+      return grupo.select { |ganado| ganado.edad >= dias }
     end
   end
 end

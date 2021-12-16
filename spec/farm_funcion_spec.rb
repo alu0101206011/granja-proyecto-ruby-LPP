@@ -6,11 +6,11 @@ RSpec.describe Farm do
     context "Interfaz de las funcionalidades - Farm::Funcion" do
       context "Componentes del módulo Funcion" do
         before :all do 
-          @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
+          @ganado1 = Farm::Ganado.new(1, 133341, "M", 15000, "caprino", "leche", "omnívoro")
           @ganado2 = Farm::Ganado.new(2, 235, "M", 40000, "bovino", "leche", "herbívoro")
           @grupo1 = [@ganado1, @ganado2]
 
-          @ganado3 = Farm::Ganado.new(3, 532, "F", 40000, "bovino", "leche", "herbívoro")
+          @ganado3 = Farm::Ganado.new(3, 730, "F", 40000, "bovino", "leche", "herbívoro")
           @grupo2 = [@ganado1, @ganado2, @ganado3]
 
           @grupo3 = [@ganado1, @ganado3]
@@ -35,7 +35,7 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para establecer los cuidados de los animales" do
-          @ganadoCuidado1 = Farm::Ganado.new(1, 410, "M", 15000, "caprino", "leche", "omnívoro")
+          @ganadoCuidado1 = Farm::Ganado.new(1, 133351, "M", 15000, "caprino", "leche", "omnívoro")
           @ganadoCuidado2 = Farm::Ganado.new(2, 245, "M", 40000, "bovino", "leche", "herbívoro")
           @grupoCuidado1 = [@ganadoCuidado1, @ganadoCuidado2]
 
