@@ -31,10 +31,10 @@ Los informes de errores y las pull requests son bienvenidos en GitHub en https:/
 # Clases de la gema
 
 # Módulo Funcion
-Es un módulo de la gema. Esta describirá las funcionalidades de la granja.
+Módulo para representar las funcionalidades de una granja mediante un módulo.
 
 ## Constantes
-- CONDICIONES_VIDA = ["campo abierto", "establo"]
+- CONDICIONES_VIDA = ["campo abierto", "establo"] Constante para representar las condiciones de vida (campo abierto, establo)
 - JAULA = :jaula Es un símbolo para representar el sistema de gestión en jaula
 - CAMPO_ABIERTO = :campo_abierto Es un símbolo para representar el sistema de gestión en campo abierto
 
@@ -45,7 +45,22 @@ Recorremos al grupo de animales sumandoles el valor y devolviendo una copia.
 
 Podemos hacer esto gracias a la sobrecarga del operador suma que se encuentra en Ganado.
 
+```ruby
+def self.cuidados (cantidad_antibiotico, grupo)
+  return grupo.map {|ganado| ganado + cantidad_antibiotico }
+end
+```
+
 - self.reproduccion
+
+```ruby
+def self.reproduccion (dias, grupo)
+  return grupo.select { |ganado| ganado.edad >= dias }
+end
+```
+Es un procedimiento para establecer la reproducción de los animales.
+
+En este procedimiento se comparan los días con la edad del ganado.
 
 ```ruby
 module Farm
@@ -53,11 +68,11 @@ module Farm
     CONDICIONES_VIDA = ["campo abierto", "establo"]
     JAULA = :jaula
     CAMPO_ABIERTO = :campo_abierto
-    def self.cuidados (valor, grupo)
-      return grupo.map {|element| element + valor}
+    def self.cuidados (cantidad_antibiotico, grupo)
+      return grupo.map {|ganado| ganado + cantidad_antibiotico }
     end
-    def self.reproduccion (estado)
-      return estado
+    def self.reproduccion (dias, grupo)
+      return grupo.select { |ganado| ganado.edad >= dias }
     end
   end
 end
@@ -301,42 +316,7 @@ def +(valor)
 end
 ```
 
-# Module Funcion
-Módulo para representar las funcionalidades de una granja mediante
-un módulo.
-
-```ruby
-module Farm
-  module Funcion
-  end
-end
-```
-
-## Constantes
-```ruby
-CONDICIONES_VIDA = ["campo abierto", "establo"]
-```
-Constante para representar las condiciones de vida (campo abierto, establo)
 
 
-## Funciones
-### cuidados
-```ruby
-def self.cuidados (estado)
-  return estado
-end
-```
 
-Es un procedimiento para establecer los cuidados de los animales.
-
-Tiene que ser self para que sea propio del módulo.
-
-
-### reproduccion
-```ruby
-def self.reproduccion (estado)
-  return estado
-end
-```
-Es un procedimiento para establecer la reproducción de los animales.
 
