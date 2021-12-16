@@ -38,14 +38,23 @@ Es un módulo de la gema. Esta describirá las funcionalidades de la granja.
 - JAULA = :jaula Es un símbolo para representar el sistema de gestión en jaula
 - CAMPO_ABIERTO = :campo_abierto Es un símbolo para representar el sistema de gestión en campo abierto
 
+## Procedimientos
+- self.cuidados
+
+Recorremos al grupo de animales sumandoles el valor y devolviendo una copia.
+
+Podemos hacer esto gracias a la sobrecarga del operador suma que se encuentra en Ganado.
+
+- self.reproduccion
+
 ```ruby
 module Farm
   module Funcion
     CONDICIONES_VIDA = ["campo abierto", "establo"]
     JAULA = :jaula
     CAMPO_ABIERTO = :campo_abierto
-    def self.cuidados (estado)
-      return estado
+    def self.cuidados (valor, grupo)
+      return grupo.map {|element| element + valor}
     end
     def self.reproduccion (estado)
       return estado
@@ -279,7 +288,16 @@ Método usando el módulo comparable usado para poder comparar al ganado por su 
 
 ```ruby
 def <=>(other)
-  return edad <=> edad.peso
+  return @edad <=> edad.peso
+end
+```
+
+### +
+Sobrecarga del operador + de objeto más un valor en la que se devuleve una copia de un objeto Ganado.
+
+```ruby
+def +(valor)
+  return Ganado.new(@id, @edad + valor, @sexo, @peso, @raza, @aprovechamiento, @alimentacion)
 end
 ```
 
