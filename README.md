@@ -129,6 +129,21 @@ module Farm
 end
 ```
 
+## Métodos de instancia
+
+### Método to_s
+Método para obtener una cadena con la información de la granja ganadera correctamente formateada.
+
+```ruby
+def to_s 
+  s = super + "\nTipo de ganado: #{@tipo_ganado}\nDestino: #{@destino}\nNúmero de animales: #{@numero_animales}\nPrecio unitario: #{@precio_unitario}\nPrecio de venta: #{@precio_venta}\nCenso: [animal id: #{censo[0].id}"
+  copycenso = @censo
+  copycenso.drop(1).each { |element| s += ", animal id: #{element.id}" }
+  s += "]"
+end
+```
+En este método lo más destacable es el censo, donde se muestra el id de los animales que son introducidos en la granja.
+
 # Clase Animal
 Clase para representar animales.
 
