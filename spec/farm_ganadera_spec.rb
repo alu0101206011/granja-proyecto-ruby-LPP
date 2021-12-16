@@ -6,7 +6,7 @@ RSpec.describe Farm do
     describe Farm::Ganadera do
       before :each do 
         @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
-        @ganado2 = Farm::Ganado.new(1, 235, "M", 40000, "bovino", "leche", "herbívoro")
+        @ganado2 = Farm::Ganado.new(2, 235, "M", 40000, "bovino", "leche", "herbívoro")
         @grupo1 = [@ganado1, @ganado2]
         @granja_ganadera = Farm::Ganadera.new(1, "Granja Labrador", "ganadera", "Granja que tiene gallinas y vacas situada al norte de Tenerife.", "ovino", "sacrificio", 2, 4.7, 10.21, @grupo1)
       end
@@ -38,6 +38,10 @@ RSpec.describe Farm do
 
         it "Tiene un atributo para almacenar los animales de la granja" do
           expect(@granja_ganadera.censo).to eq(@grupo1)
+        end
+
+        it "Se obtiene una cadena con la información de la granja ganadera correctamente formateada" do
+          expect(@granja_ganadera.to_s).to eq("Identificador de la granja: 1\nNombre de la granja: Granja Labrador\nTipo de granja: ganadera\nDescripción: Granja que tiene gallinas y vacas situada al norte de Tenerife.\nTipo de ganado: ovino\nDestino: sacrificio\nNúmero de animales: 2\nPrecio unitario: 4.7\nPrecio de venta: 10.21\nCenso: [animal id: 1, animal id: 2]")
         end
       end
 
