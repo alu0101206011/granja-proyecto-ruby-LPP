@@ -30,23 +30,25 @@ Los informes de errores y las pull requests son bienvenidos en GitHub en https:/
 
 # Clases de la gema
 
-# Clase Funcion
-Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.
+# Módulo Funcion
+Es un módulo de la gema. Esta describirá las funcionalidades de la granja.
 
-## Atributos
-
-- vida: atributo que representa las condiciones de vida de los animales `(Excelente, Bien, Regular, Mal)`.
-- cuidados: atributo para los tipos de cuidados de los animales `(Primarios, Especiales, Normales)`.
-- reproduccion: atributo para la reproducción de los animales `(Vivíparos, Ovíparos, Ovovivíparos)`.
+## Constantes
+- CONDICIONES_VIDA = ["campo abierto", "establo"]
+- JAULA = :jaula Es un símbolo para representar el sistema de gestión en jaula
+- CAMPO_ABIERTO = :campo_abierto Es un símbolo para representar el sistema de gestión en campo abierto
 
 ```ruby
 module Farm
-  class Funcion
-    attr_reader :vida, :cuidados, :reproduccion
-    def initialize(vida, cuidados, reproduccion)
-      @vida = vida
-      @cuidados = cuidados
-      @reproduccion = reproduccion
+  module Funcion
+    CONDICIONES_VIDA = ["campo abierto", "establo"]
+    JAULA = :jaula
+    CAMPO_ABIERTO = :campo_abierto
+    def self.cuidados (estado)
+      return estado
+    end
+    def self.reproduccion (estado)
+      return estado
     end
   end
 end
@@ -143,6 +145,23 @@ def to_s
 end
 ```
 En este método lo más destacable es el censo, donde se muestra el id de los animales que son introducidos en la granja.
+
+## Módulo enumerable
+La clase Ganadera para que sea enumerable se necesitan los siguientes pasos:
+
+- Incluirlo
+```ruby
+include Enumerable
+``` 
+
+- Método each
+```ruby
+def each
+  yield @numero_animales
+  yield @precio_unitario
+  yield @precio_venta
+end
+```
 
 # Clase Animal
 Clase para representar animales.
