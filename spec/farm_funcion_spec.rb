@@ -5,6 +5,18 @@ RSpec.describe Farm do
   describe Farm::Funcion do
     context "Interfaz de las funcionalidades - Farm::Funcion" do
       context "Componentes del módulo Funcion" do
+        before :all do 
+          @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
+          @ganado2 = Farm::Ganado.new(2, 235, "M", 40000, "bovino", "leche", "herbívoro")
+          @grupo1 = [@ganado1, @ganado2]
+
+          @ganado3 = Farm::Ganado.new(3, 532, "F", 40000, "bovino", "leche", "herbívoro")
+          @grupo2 = [@ganado1, @ganado2, @ganado3]
+
+          @grupo3 = [@ganado1, @ganado3]
+
+        end        
+
         it "Existe un módulo para almacenar las funcionalidades" do
           expect(Farm::Funcion).to be_instance_of(Module)
         end
@@ -23,20 +35,15 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para establecer los cuidados de los animales" do
-          @ganado1 = Farm::Ganado.new(1, 400, "M", 15000, "caprino", "leche", "omnívoro")
-          @ganado2 = Farm::Ganado.new(2, 235, "M", 40000, "bovino", "leche", "herbívoro")
-          @grupo1 = [@ganado1, @ganado2]
-
           @ganadoCuidado1 = Farm::Ganado.new(1, 410, "M", 15000, "caprino", "leche", "omnívoro")
           @ganadoCuidado2 = Farm::Ganado.new(2, 245, "M", 40000, "bovino", "leche", "herbívoro")
           @grupoCuidado1 = [@ganadoCuidado1, @ganadoCuidado2]
 
           expect(Farm::Funcion::cuidados(10,@grupo1)).to eq(@grupoCuidado1)
-
         end
 
-        it "Existe un procedimiento para establecer la reproducción de los animales" do
-          expect(Farm::Funcion::reproduccion("Vivíparo")).to eq("Vivíparo")
+        it "Existe un procedimiento para establecer la reproducción de los animales (24 meses)" do
+          expect(Farm::Funcion::reproduccion(730,@grupo2)).to eq(@grupo3)
         end
       end
 
