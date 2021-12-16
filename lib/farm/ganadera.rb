@@ -18,10 +18,21 @@ module Farm
       super(id, nombre, tipo, descripcion)
       @tipo_ganado = tipo_ganado
       @destino = destino
-      @numero_animales = numero_animales
+      if numero_animales == censo.length()
+        @numero_animales = numero_animales
+      else 
+        raise "No coincide el numero de animales con el censo."
+      end
       @precio_unitario = precio_unitario
       @precio_venta = precio_venta
       @censo = censo
+    end
+
+    def to_s 
+      s = super + "\nTipo de ganado: #{@tipo_ganado}\nDestino: #{@destino}\nNúmero de animales: #{@numero_animales}\nPrecio unitario: #{@precio_unitario}\nPrecio de venta: #{@precio_venta}\nCenso: [animal id: #{censo[0].id}"
+      copycenso = @censo
+      copycenso.drop(1).each { |element| s += ", animal id: #{element.id}" }
+      s += "]"
     end
   end
 end
