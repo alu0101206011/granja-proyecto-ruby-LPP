@@ -45,6 +45,12 @@ RSpec.describe Farm do
         end
       end
 
+      context "Enumerable" do 
+        it "Las granjas ganaderas han de ser Enumerables" do
+          expect(@granja_ganadera.is_a?Enumerable).to be eq(true)
+        end        
+      end
+
       context "Herencia de la clase Ganadera" do
         it "Se espera que una instancia de la clase Ganadera sea una granja Ganadera" do
           expect(@granja_ganadera).to be_instance_of(Farm::Ganadera)
