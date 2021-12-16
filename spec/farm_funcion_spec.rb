@@ -39,6 +39,16 @@ RSpec.describe Farm do
           expect(Farm::Funcion).not_to be_kind_of(Numeric)
         end        
       end
+
+      context "Sistemas de gestion de animales de granja" do
+        it "Existe una constante para representar el sistema de gestión por jaulas" do
+          expect(Farm::Funcion::JAULA).to eq(:jaula)
+        end
+
+        it "Existe una constante para representar el sistema de gestión por campo abierto" do
+          expect(Farm::Funcion::CAMPO_ABIERTO).to eq(:campo_abierto)
+        end
+      end
     end
   end
 end
