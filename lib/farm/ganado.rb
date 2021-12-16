@@ -25,7 +25,11 @@ module Farm
 
     # Método para el módulo comparable
     def <=>(other)
-      return edad <=> other.edad
+      return @edad <=> other.edad
+    end
+
+    def +(valor)
+      return Ganado.new(@id, @edad + valor, @sexo, @peso, @raza, @aprovechamiento, @alimentacion)
     end
   end
 end

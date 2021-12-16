@@ -10,8 +10,10 @@ module Farm
     CAMPO_ABIERTO = :campo_abierto
 
     # Procedimiento para cuidados
-    def self.cuidados (estado)
-      return estado
+    # @param [integer] valor Cuanto aumentaremos la vida a nuestros queridos animales
+    # @param [array] grupo Grupo de ganado
+    def self.cuidados (valor, grupo)
+      return grupo.map {|element| element + valor}
     end
 
     # Procedimiento para la reproduccion
