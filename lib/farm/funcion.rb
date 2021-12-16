@@ -6,6 +6,8 @@ module Farm
   module Funcion
     # Constante con las condiciones de vida
     CONDICIONES_VIDA = ["campo abierto", "establo"]
+    JAULA = :jaula
+    CAMPO_ABIERTO = :campo_abierto
 
     # Procedimiento para cuidados
     def self.cuidados (estado)
