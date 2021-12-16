@@ -4,6 +4,7 @@ module Farm
   # Clase Ganadera
   # Clase para representar Ganadera
   class Ganadera < Datos
+    include Enumerable
     attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario, :precio_venta, :censo
 
     # Constructor
@@ -33,6 +34,12 @@ module Farm
       copycenso = @censo
       copycenso.drop(1).each { |element| s += ", animal id: #{element.id}" }
       s += "]"
+    end
+
+    def each 
+      yield @numero_animales
+      yield @precio_unitario
+      yield @precio_venta
     end
   end
 end

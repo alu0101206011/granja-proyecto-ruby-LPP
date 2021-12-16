@@ -47,7 +47,7 @@ RSpec.describe Farm do
 
       context "Enumerable" do 
         it "Las granjas ganaderas han de ser Enumerables" do
-          expect(@granja_ganadera.is_a?Enumerable).to be eq(true)
+          expect(@granja_ganadera.is_a?Enumerable).to eq(true)
         end        
       end
 
