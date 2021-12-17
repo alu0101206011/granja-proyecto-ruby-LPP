@@ -30,23 +30,49 @@ Los informes de errores y las pull requests son bienvenidos en GitHub en https:/
 
 # Clases de la gema
 
-# Clase Funcion
-Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.
+# Módulo Funcion
+Módulo para representar las funcionalidades de una granja mediante un módulo.
 
-## Atributos
+## Constantes
+- CONDICIONES_VIDA = ["campo abierto", "establo"] Constante para representar las condiciones de vida (campo abierto, establo)
+- JAULA = :jaula Es un símbolo para representar el sistema de gestión en jaula
+- CAMPO_ABIERTO = :campo_abierto Es un símbolo para representar el sistema de gestión en campo abierto
 
-- vida: atributo que representa las condiciones de vida de los animales `(Excelente, Bien, Regular, Mal)`.
-- cuidados: atributo para los tipos de cuidados de los animales `(Primarios, Especiales, Normales)`.
-- reproduccion: atributo para la reproducción de los animales `(Vivíparos, Ovíparos, Ovovivíparos)`.
+## Procedimientos
+- self.cuidados
+
+Recorremos al grupo de animales sumandoles el valor y devolviendo una copia.
+
+Podemos hacer esto gracias a la sobrecarga del operador suma que se encuentra en Ganado.
+
+```ruby
+def self.cuidados (cantidad_antibiotico, grupo)
+  return grupo.map {|ganado| ganado + cantidad_antibiotico }
+end
+```
+
+- self.reproduccion
+
+```ruby
+def self.reproduccion (dias, grupo)
+  return grupo.select { |ganado| ganado.edad >= dias }
+end
+```
+Es un procedimiento para establecer la reproducción de los animales.
+
+En este procedimiento se comparan los días con la edad del ganado.
 
 ```ruby
 module Farm
-  class Funcion
-    attr_reader :vida, :cuidados, :reproduccion
-    def initialize(vida, cuidados, reproduccion)
-      @vida = vida
-      @cuidados = cuidados
-      @reproduccion = reproduccion
+  module Funcion
+    CONDICIONES_VIDA = ["campo abierto", "establo"]
+    JAULA = :jaula
+    CAMPO_ABIERTO = :campo_abierto
+    def self.cuidados (cantidad_antibiotico, grupo)
+      return grupo.map {|ganado| ganado + cantidad_antibiotico }
+    end
+    def self.reproduccion (dias, grupo)
+      return grupo.select { |ganado| ganado.edad >= dias }
     end
   end
 end
@@ -100,6 +126,66 @@ def to_s
 end
 ```
 
+# Clase Ganadera
+Clase heredada de datos para representar los datos de una granja ganadera.
+
+## Atributos de instancia 
+- tipo_ganado: Contiene el tipo de ganado que se encuentra en la granja (bovino, ovino, caprino o porcino).
+- destino: Contiene el destino del animal (leche, sacrificio).
+- numero_animales: Contiene el numero de animales de la granja
+- precio_unitario: Contiene el precio unitario de los animales.
+- precio_venta: Contiene el precio de venta de los animales
+- censo: Contiene los animales de la granja. Es un array de tipo Ganado.
+
+```ruby
+module Farm
+  class Ganadera < Datos
+    attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario, :precio_venta, :censo
+
+    def initialize(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario, precio_venta, censo) 
+      super(id, nombre, tipo, descripcion)
+      @tipo_ganado = tipo_ganado
+      @destino = destino
+      @numero_animales = numero_animales
+      @precio_unitario = precio_unitario
+      @precio_venta = precio_venta
+      @censo = censo
+    end
+  end
+end
+```
+
+## Métodos de instancia
+
+### Método to_s
+Método para obtener una cadena con la información de la granja ganadera correctamente formateada.
+
+```ruby
+def to_s 
+  s = super + "\nTipo de ganado: #{@tipo_ganado}\nDestino: #{@destino}\nNúmero de animales: #{@numero_animales}\nPrecio unitario: #{@precio_unitario}\nPrecio de venta: #{@precio_venta}\nCenso: [animal id: #{censo[0].id}"
+  copycenso = @censo
+  copycenso.drop(1).each { |element| s += ", animal id: #{element.id}" }
+  s += "]"
+end
+```
+En este método lo más destacable es el censo, donde se muestra el id de los animales que son introducidos en la granja.
+
+## Módulo enumerable
+La clase Ganadera para que sea enumerable se necesitan los siguientes pasos:
+
+- Incluirlo
+```ruby
+include Enumerable
+``` 
+
+- Método each
+```ruby
+def each
+  yield @numero_animales
+  yield @precio_unitario
+  yield @precio_venta
+end
+```
 
 # Clase Animal
 Clase para representar animales.
@@ -217,46 +303,20 @@ Método usando el módulo comparable usado para poder comparar al ganado por su 
 
 ```ruby
 def <=>(other)
-  return edad <=> edad.peso
+  return @edad <=> edad.peso
 end
 ```
 
-# Module Funcion
-Módulo para representar las funcionalidades de una granja mediante
-un módulo.
+### +
+Sobrecarga del operador + de objeto más un valor en la que se devuleve una copia de un objeto Ganado.
 
 ```ruby
-module Farm
-  module Funcion
-  end
+def +(valor)
+  return Ganado.new(@id, @edad + valor, @sexo, @peso, @raza, @aprovechamiento, @alimentacion)
 end
 ```
 
-## Constantes
-```ruby
-CONDICIONES_VIDA = ["campo abierto", "establo"]
-```
-Constante para representar las condiciones de vida (campo abierto, establo)
 
 
-## Funciones
-### cuidados
-```ruby
-def self.cuidados (estado)
-  return estado
-end
-```
 
-Es un procedimiento para establecer los cuidados de los animales.
-
-Tiene que ser self para que sea propio del módulo.
-
-
-### reproduccion
-```ruby
-def self.reproduccion (estado)
-  return estado
-end
-```
-Es un procedimiento para establecer la reproducción de los animales.
 
