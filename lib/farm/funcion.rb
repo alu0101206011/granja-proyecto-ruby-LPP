@@ -4,8 +4,10 @@ module Farm
   # Modulo Funcion
   # Contiene las funcionalidades de la granja
   module Funcion
-    # Constante con las condiciones de vida
-    CONDICIONES_VIDA = ["campo abierto", "establo"]
+    # Constantes con las condiciones de vida
+    CAMPO_ABIERTO = :campo_abierto
+
+    ESTABLO = :establo
 
     # Constante que contiene el sistema de gestion de los animales por jaula
     JAULA = :jaula
