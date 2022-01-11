@@ -45,6 +45,11 @@ RSpec.describe Farm do
         it "Existe un procedimiento para establecer la reproducción de los animales (24 meses)" do
           expect(Farm::Funcion::reproduccion(730,@grupo2)).to eq(@grupo3)
         end
+
+        it "Existe un procedimiento para calcular el bienestar animal" do 
+          expect(Farm::Funcion::bienestar_animal(@ganado1, :campo_abierto))
+        end
+
       end
 
       context "Herencia del módulo Funcion" do
