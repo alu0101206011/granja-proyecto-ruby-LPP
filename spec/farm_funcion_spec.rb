@@ -6,7 +6,7 @@ RSpec.describe Farm do
     context "Interfaz de las funcionalidades - Farm::Funcion" do
       context "Componentes del módulo Funcion" do
         before :all do 
-          @ganado1 = Farm::Ganado.new(1, 133341, "M", 15000, "caprino", "leche", "omnívoro")
+          @ganado1 = Farm::Ganado.new(1, 1333, "M", 15000, "caprino", "leche", "omnívoro")
           @ganado2 = Farm::Ganado.new(2, 235, "M", 40000, "bovino", "leche", "herbívoro")
           @grupo1 = [@ganado1, @ganado2]
 
@@ -15,6 +15,8 @@ RSpec.describe Farm do
 
           @grupo3 = [@ganado1, @ganado3]
 
+          @granja_ganadera = Farm::Ganadera.new(1, "Granja Labrador", "ganadera", "Granja que tiene ovejas y vacas situada al norte de Tenerife.", "ovino", "sacrificio", 3, 4.7, 10.21, @grupo2)
+
         end        
 
         it "Existe un módulo para almacenar las funcionalidades" do
@@ -22,8 +24,7 @@ RSpec.describe Farm do
         end
 
         it "Existe una constante para representar las condiciones de vida (campo abierto, establo)" do
-          expect(Farm::Funcion::CONDICIONES_VIDA).to eq(["campo abierto", "establo"])
-          expect(Farm::Funcion::CONDICIONES_VIDA[0]).to eq("campo abierto")
+          expect(Farm::Funcion::CAMPO_ABIERTO).to eq(:campo_abierto)
         end
 
         it "Existe una constante para representar el sistema de gestión por jaulas" do
@@ -35,7 +36,7 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para establecer los cuidados de los animales" do
-          @ganadoCuidado1 = Farm::Ganado.new(1, 133351, "M", 15000, "caprino", "leche", "omnívoro")
+          @ganadoCuidado1 = Farm::Ganado.new(1, 1343, "M", 15000, "caprino", "leche", "omnívoro")
           @ganadoCuidado2 = Farm::Ganado.new(2, 245, "M", 40000, "bovino", "leche", "herbívoro")
           @grupoCuidado1 = [@ganadoCuidado1, @ganadoCuidado2]
 
@@ -47,7 +48,7 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para calcular el bienestar animal" do 
-          expect(Farm::Funcion::bienestar_animal(@ganado1, :campo_abierto))
+          expect(Farm::Funcion::bienestar(@granja_ganadera, :campo_abierto)).to eq(45)
         end
 
       end
