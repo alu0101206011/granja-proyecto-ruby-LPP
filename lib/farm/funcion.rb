@@ -33,8 +33,7 @@ module Farm
       array_ratios = ganado.censo.collect { |animal| animal.peso / animal.edad }
       mediaRatios = (array_ratios.reduce (:+)) / ganado.numero_animales
       maxRatio = array_ratios.max_by { |ratio| ratio }
-      proporcion = condicion == :campo_abierto ? 100 : 50
-      mediaRatios*proporcion/maxRatio # Si el maximo de los ratios es (100 | 50), la media de ellos es x
+      mediaRatios * (condicion == :campo_abierto ? 100 : 50) / maxRatio # Si el maximo de los ratios es (100 | 50), la media de ellos es x
     end
 
   end
