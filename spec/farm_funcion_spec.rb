@@ -16,6 +16,7 @@ RSpec.describe Farm do
           @grupo3 = [@ganado1, @ganado3]
 
           @granja_ganadera = Farm::Ganadera.new(1, "Granja Labrador", "ganadera", "Granja que tiene ovejas y vacas situada al norte de Tenerife.", "ovino", "sacrificio", 3, 4.7, 10.21, @grupo2)
+          @granja_ganadera1 = Farm::Ganadera.new(1, "Granja Labrador", "ganadera", "Granja que tiene ovejas y vacas situada al norte de Tenerife.", "ovino", "leche", 3, 4.7, 10.21, @grupo2)
 
         end        
 
@@ -49,10 +50,12 @@ RSpec.describe Farm do
 
         it "Existe un procedimiento para calcular el bienestar animal" do 
           expect(Farm::Funcion::bienestar(@granja_ganadera, :campo_abierto)).to eq(45)
+          expect(Farm::Funcion::bienestar(@granja_ganadera, :jaula)).to eq(22)
         end
 
         it "Existe un procedimiento para calcular el beneficio neto de una granja" do
           expect(Farm::Funcion::beneficio(@granja_ganadera)).to eq(79.16666666666667)
+          expect(Farm::Funcion::beneficio(@granja_ganadera1)).to eq(57.464366091522876)
         end
 
       end
