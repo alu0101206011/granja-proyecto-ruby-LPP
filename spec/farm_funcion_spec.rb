@@ -49,13 +49,17 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para calcular el bienestar animal" do 
-          expect(Farm::Funcion::bienestar(@granja_ganadera, :campo_abierto)).to eq(45)
-          expect(Farm::Funcion::bienestar(@granja_ganadera, :jaula)).to eq(22)
+          expect(Farm::Funcion::bienestar(@granja_ganadera, Farm::Funcion::CAMPO_ABIERTO)).to eq(45)
+          expect(Farm::Funcion::bienestar(@granja_ganadera, Farm::Funcion::JAULA)).to eq(22)
         end
 
         it "Existe un procedimiento para calcular el beneficio neto de una granja" do
           expect(Farm::Funcion::beneficio(@granja_ganadera)).to eq(79.16666666666667)
           expect(Farm::Funcion::beneficio(@granja_ganadera1)).to eq(57.464366091522876)
+        end
+
+        it "Existe un procedimiento para calcular el indice de productividad (entre 1, 2 y 3)" do
+          expect(Farm::Funcion::productividad(@granja_ganadera, Farm::Funcion::CAMPO_ABIERTO)).to eq(2)
         end
 
       end
