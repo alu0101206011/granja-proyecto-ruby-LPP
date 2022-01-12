@@ -29,9 +29,18 @@ module Farm
     def self.bienestar (ganado, condicion)
       array_ratios = ganado.censo.collect { |animal| animal.peso / animal.edad }
       mediaRatios = (array_ratios.reduce (:+)) / ganado.numero_animales
-      maxRatio = array_ratios.max_by { |ratio| ratio }
-      mediaRatios * (condicion == :campo_abierto ? 100 : 50) / maxRatio # Si el maximo de los ratios es (100 | 50), la media de ellos es x
+      mediaRatios * (condicion == :campo_abierto ? 100 : 50) / array_ratios.max # Si el maximo de los ratios es (100 | 50), la media de ellos es x
     end
 
+
+    def self.beneficio (ganado)
+      arrayPeso = ganado.censo.collect do |i| 
+        (ganado.destino == "sacrificio" ? i.peso : i.edad) / ganado.precio_venta
+      end
+      mediaPeso = (arrayPeso.reduce (:+)) /ganado.numero_animales
+      mediaPeso * 100 / arrayPeso.max
+    end
+
+    
   end
 end

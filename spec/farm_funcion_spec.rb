@@ -52,7 +52,7 @@ RSpec.describe Farm do
         end
 
         it "Existe un procedimiento para calcular el beneficio neto de una granja" do
-          expect(Farm::Funcion::beneficio(@granja_ganadera)).to eq(233)
+          expect(Farm::Funcion::beneficio(@granja_ganadera)).to eq(79.16666666666667)
         end
 
       end
