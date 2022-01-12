@@ -34,7 +34,6 @@ Los informes de errores y las pull requests son bienvenidos en GitHub en https:/
 Módulo para representar las funcionalidades de una granja mediante un módulo.
 
 ## Constantes
-- CONDICIONES_VIDA = ["campo abierto", "establo"] Constante para representar las condiciones de vida (campo abierto, establo)
 - JAULA = :jaula Es un símbolo para representar el sistema de gestión en jaula
 - CAMPO_ABIERTO = :campo_abierto Es un símbolo para representar el sistema de gestión en campo abierto
 
@@ -78,6 +77,22 @@ module Farm
 end
 ```
 
+- self.bienestar
+Procedimiento creado para calcular el indice de bienestar animal.
+
+Se realiza con el siguiente planteamiento:
+  1) Calcular todos los ratios de peso/edad de los animales de una granja y dividirlo por el número de animales de la misma. 
+  2) Calcular el máximo de los ratios de peso/edad de los animales de una granja.
+  3) Utilizar el máximo para calcular el índice de bienestar animal haciendo una proporción a 100 si es campo abierto y a 50 en caso contrario.
+
+```ruby
+def self.bienestar (ganado, condicion)
+  array_ratios = ganado.censo.collect { |animal| animal.peso / animal.edad }
+  mediaRatios = (array_ratios.reduce (:+)) / ganado.numero_animales
+  maxRatio = array_ratios.max_by { |ratio| ratio }
+  mediaRatios * (condicion == :campo_abierto ? 100 : 50) / maxRatio # Si el maximo de los ratios es (100 | 50), la media de ellos es x
+end
+```
 ## Métodos
 
 ### to_s
