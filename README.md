@@ -93,6 +93,26 @@ def self.bienestar (ganado, condicion)
   mediaRatios * (condicion == :campo_abierto ? 100 : 50) / maxRatio # Si el maximo de los ratios es (100 | 50), la media de ellos es x
 end
 ```
+
+- self.beneficio
+Procedimiento creado para calcular el indice de beneficio neto animal.
+
+Se realiza con el siguiente planteamiento:
+  * Calcular todos los ratios en función del precio de venta, donde si los animales tienen como destino el sacrificio, el índice se calculará además
+  en función de la media del peso, en otro caso, se usará el de edad y precio de venta.
+   de los animales de una granja y dividirlo por el número de animales de la misma. 
+
+
+```ruby
+def self.beneficio (ganado)
+  arrayPeso = ganado.censo.collect do |i| 
+    (ganado.destino == "sacrificio" ? i.peso : i.edad) / ganado.precio_venta
+  end
+  mediaPeso = (arrayPeso.reduce (:+)) /ganado.numero_animales
+  mediaPeso * 100 / arrayPeso.max
+end
+```
+
 ## Métodos
 
 ### to_s
