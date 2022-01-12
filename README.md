@@ -78,6 +78,7 @@ end
 ```
 
 - self.bienestar
+
 Procedimiento creado para calcular el indice de bienestar animal.
 
 Se realiza con el siguiente planteamiento:
@@ -95,6 +96,7 @@ end
 ```
 
 - self.beneficio
+
 Procedimiento creado para calcular el indice de beneficio neto animal.
 
 Se realiza con el siguiente planteamiento:
@@ -111,6 +113,31 @@ def self.beneficio (ganado)
   mediaPeso = (arrayPeso.reduce (:+)) /ganado.numero_animales
   mediaPeso * 100 / arrayPeso.max
 end
+```
+
+
+- self.productividad
+
+Es un procedimiento para calcular el índice de productividad, para ello se realiza lo siguiente:
+  * Para calcular el indice de productividad basandonos en los niveles de bienestar se ha realizado un operador ternario donde:
+    * Si el indice de bienestar es >= que 80 el indice de productividad es 3.
+    * Si el indice de bienestar está entre 20 y 80 el índice de productividad es 2.
+    * Si el indice de bienestar no coincide con lo anterior, el índice de productividad es 1.
+
+  * Para calcular el indice de productividad basandonos en los niveles de beneficio se ha realizado un operador ternario donde:
+    * Si el indice de beneficio es > que 50 el indice de productividad es 3.
+    * Si el indice de beneficio está entre, ambos inclusive, 10 y 50 el índice de productividad es 2.
+    * Si el indice de beneficio no coincide con lo anterior, el índice de productividad es 1.
+
+Luego hacemos la media entre los dos y truncamos el resultado para que sea un índice sin decimales y sin redondeo.
+    
+
+```ruby
+def self.productividad(ganado, condicion)
+  indice_bienestar = bienestar(ganado, condicion) >= 80 ? 3 : bienestar(ganado, condicion) > 20 && bienestar(ganado, condicion) < 80 ? 2 : 1
+  indice_beneficio = beneficio(ganado) > 50 ? 3 : beneficio(ganado) >= 10 && beneficio(ganado) <= 50 ? 2 : 1
+  ((indice_bienestar + indice_beneficio) / 2).truncate(0)
+end 
 ```
 
 ## Métodos
