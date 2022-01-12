@@ -51,6 +51,10 @@ RSpec.describe Farm do
           expect(Farm::Funcion::bienestar(@granja_ganadera, :campo_abierto)).to eq(45)
         end
 
+        it "Existe un procedimiento para calcular el beneficio neto de una granja" do
+          expect(Farm::Funcion::beneficio(@granja_ganadera)).to eq(233)
+        end
+
       end
 
       context "Herencia del módulo Funcion" do
