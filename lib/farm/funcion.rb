@@ -37,7 +37,7 @@ module Farm
       arrayPeso = ganado.censo.collect do |i| 
         (ganado.destino == "sacrificio" ? i.peso : i.edad) / ganado.precio_venta
       end
-      mediaPeso = (arrayPeso.reduce (:+)) /ganado.numero_animales
+      mediaPeso = (arrayPeso.reduce (:+)) / ganado.numero_animales
       (mediaPeso * 100 / arrayPeso.max).truncate(2)
     end
 
@@ -46,6 +46,5 @@ module Farm
       indice_beneficio = beneficio(ganado) > 50 ? 3 : beneficio(ganado) >= 10 && beneficio(ganado) <= 50 ? 2 : 1
       ((indice_bienestar + indice_beneficio) / 2).truncate(0)
     end
-    
   end
 end
