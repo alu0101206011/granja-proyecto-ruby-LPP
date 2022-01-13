@@ -45,10 +45,12 @@ module Farm
       yield @precio_venta
     end
 
+    # Método para el módulo comparable
     def <=>(other)
       return @precio_venta <=> other.precio_venta
     end
 
+    # Sobrecarga del operador suma
     def +(valor)
       return Ganadera.new(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario, (precio_venta + valor).truncate(2), censo) 
     end
