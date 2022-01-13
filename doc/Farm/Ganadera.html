@@ -917,7 +917,7 @@
       <pre class="code"><span class="info file"># File 'lib/farm/ganadera.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='op'>+</span><span class='lparen'>(</span><span class='id identifier rubyid_valor'>valor</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="" title="Farm::Ganadera (class)">Ganadera</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Farm::Ganadera#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_nombre'>nombre</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo'>tipo</span><span class='comma'>,</span> <span class='id identifier rubyid_descripcion'>descripcion</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo_ganado'>tipo_ganado</span><span class='comma'>,</span> <span class='id identifier rubyid_destino'>destino</span><span class='comma'>,</span> <span class='id identifier rubyid_numero_animales'>numero_animales</span><span class='comma'>,</span> <span class='id identifier rubyid_precio_unitario'>precio_unitario</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_precio_venta'>precio_venta</span> <span class='op'>+</span> <span class='id identifier rubyid_valor'>valor</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_truncate'>truncate</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_censo'>censo</span><span class='rparen'>)</span> 
+  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="" title="Farm::Ganadera (class)">Ganadera</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Farm::Ganadera#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_nombre'>nombre</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo'>tipo</span><span class='comma'>,</span> <span class='id identifier rubyid_descripcion'>descripcion</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo_ganado'>tipo_ganado</span><span class='comma'>,</span> <span class='id identifier rubyid_destino'>destino</span><span class='comma'>,</span> <span class='id identifier rubyid_numero_animales'>numero_animales</span><span class='comma'>,</span> <span class='id identifier rubyid_precio_unitario'>precio_unitario</span><span class='comma'>,</span> <span class='id identifier rubyid_precio_venta'>precio_venta</span> <span class='op'>+</span> <span class='id identifier rubyid_valor'>valor</span><span class='comma'>,</span> <span class='id identifier rubyid_censo'>censo</span><span class='rparen'>)</span> 
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -958,7 +958,7 @@
       <pre class="code"><span class="info file"># File 'lib/farm/ganadera.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='ivar'>@precio_venta</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_precio_venta'>precio_venta</span>
+  <span class='kw'>return</span> <span class='ivar'>@id</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1075,7 +1075,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 13 01:45:11 2022 by
+  Generated on Thu Jan 13 12:05:53 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>

@@ -99,7 +99,7 @@ RSpec.describe Farm do
           @granja_ganadera6 = Farm::Ganadera.new(3, "Granja Casa Saúl", "ganadera", "Granja que tiene cabras situada en la matanza.", "caprino", "sacrificio", 4, 0.7, 6.36, @grupo_caprino)
           @cooperativaProporcion = [@granja_ganadera4, @granja_ganadera5, @granja_ganadera6]
 
-          maxProdGranja = @cooperativa1.max_by {|granja| Farm::Funcion::productividad(granja, Farm::Funcion::CAMPO_ABIERTO)}
+          maxProdGranja = @cooperativa1.max_by { |granja| Farm::Funcion::productividad(granja, Farm::Funcion::CAMPO_ABIERTO) }
           proporcion = (maxProdGranja.precio_venta / 2)
           expect(@cooperativa1.collect { |granja| granja = granja + proporcion }).to eq(@cooperativaProporcion)
         end
