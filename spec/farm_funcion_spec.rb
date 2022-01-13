@@ -82,16 +82,27 @@ RSpec.describe Farm do
           expect(Farm::Funcion::productividad(@granja_ganadera1, Farm::Funcion::CAMPO_ABIERTO)).to eq(2)
           expect(Farm::Funcion::productividad(@granja_ganadera2, Farm::Funcion::CAMPO_ABIERTO)).to eq(2)
           expect(Farm::Funcion::productividad(@granja_ganadera3, Farm::Funcion::CAMPO_ABIERTO)).to eq(3)
+          expect(Farm::Funcion::productividad(@granja_ganadera1, Farm::Funcion::JAULA)).to eq(2)
+          expect(Farm::Funcion::productividad(@granja_ganadera2, Farm::Funcion::JAULA)).to eq(2)
+          expect(Farm::Funcion::productividad(@granja_ganadera3, Farm::Funcion::JAULA)).to eq(2)
 
         end
 
         it "Granja con mayor indice de productividad dentro de una cooperativa" do
           expect(@cooperativa1.max_by { |granja| Farm::Funcion::productividad(granja, Farm::Funcion::CAMPO_ABIERTO) }).to eq(@granja_ganadera3)
+          expect(@cooperativa1.max_by { |granja| Farm::Funcion::productividad(granja, Farm::Funcion::JAULA) }).to eq(@granja_ganadera1)
         end
 
-        
+        it "Se espera que el precio de la cooperativa aumente de forma proporcional al de máximo indicador de productividad" do
+          @granja_ganadera4 = Farm::Ganadera.new(1, "Granja Labrador", "ganadera", "Granja que tiene ovejas situada al norte de Tenerife.", "ovino", "sacrificio", 4, 6.7, 22.42, @grupo_ovino)
+          @granja_ganadera5 = Farm::Ganadera.new(2, "Granja Casa Jaime", "ganadera", "Granja que tiene cerdos situada en la matanza.", "porcino", "leche", 4, 4.7, 12.33, @grupo_porcino)
+          @granja_ganadera6 = Farm::Ganadera.new(3, "Granja Casa Saúl", "ganadera", "Granja que tiene cabras situada en la matanza.", "caprino", "sacrificio", 4, 0.7, 6.36, @grupo_caprino)
+          @cooperativaProporcion = [@granja_ganadera4, @granja_ganadera5, @granja_ganadera6]
 
-        
+          maxProdGranja = @cooperativa1.max_by {|granja| Farm::Funcion::productividad(granja, Farm::Funcion::CAMPO_ABIERTO)}
+          proporcion = (maxProdGranja.precio_venta / 2)
+          expect(@cooperativa1.collect { |granja| granja = granja + proporcion }).to eq(@cooperativaProporcion)
+        end
       end
 
       context "Herencia del módulo Funcion" do

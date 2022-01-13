@@ -5,6 +5,7 @@ module Farm
   # Clase para representar Ganadera
   class Ganadera < Datos
     include Enumerable
+    include Comparable
     attr_reader :tipo_ganado, :destino, :numero_animales, :precio_unitario, :precio_venta, :censo
 
     # Constructor
@@ -42,6 +43,14 @@ module Farm
       yield @numero_animales
       yield @precio_unitario
       yield @precio_venta
+    end
+
+    def <=>(other)
+      return @precio_venta <=> other.precio_venta
+    end
+
+    def +(valor)
+      return Ganadera.new(id, nombre, tipo, descripcion, tipo_ganado, destino, numero_animales, precio_unitario, (precio_venta + valor).truncate(2), censo) 
     end
   end
 end
