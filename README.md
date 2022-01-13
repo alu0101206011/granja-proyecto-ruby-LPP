@@ -249,6 +249,25 @@ def each
 end
 ```
 
+## Módulo Comparable
+La clase Ganadera para que sea enumerable se necesitan los siguientes pasos:
+
+- Incluirlo
+```ruby
+include Comparable
+``` 
+
+- Método <=>
+```ruby
+def <=>(other)
+  return @edad <=> other.edad
+end
+
+def +(valor)
+  return Ganado.new(@id, @edad + valor, @sexo, @peso, @raza, @aprovechamiento, @alimentacion)
+end
+```
+
 # Clase Animal
 Clase para representar animales.
 
