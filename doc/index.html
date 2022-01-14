@@ -91,26 +91,55 @@
 
 <h1 id="label-Clases+de+la+gema">Clases de la gema</h1>
 
-<h1 id="label-Clase+Funcion">Clase Funcion</h1>
+<h1 id="label-M-C3-B3dulo+Funcion">Módulo Funcion</h1>
 
-<p>Es una de las clases de la gema. Esta describirá las funcionalidades de la granja.</p>
+<p>Módulo para representar las funcionalidades de una granja mediante un módulo.</p>
 
-<h2 id="label-Atributos">Atributos</h2>
+<h2 id="label-Constantes">Constantes</h2>
 <ul><li>
-<p>vida: atributo que representa las condiciones de vida de los animales <code>(Excelente, Bien, Regular, Mal)</code>.</p>
+<p>CONDICIONES_VIDA = [“campo abierto”, “establo”] Constante para representar las condiciones de vida (campo abierto, establo)</p>
 </li><li>
-<p>cuidados: atributo para los tipos de cuidados de los animales <code>(Primarios, Especiales, Normales)</code>.</p>
+<p>JAULA = :jaula Es un símbolo para representar el sistema de gestión en jaula</p>
 </li><li>
-<p>reproduccion: atributo para la reproducción de los animales <code>(Vivíparos, Ovíparos, Ovovivíparos)</code>.</p>
+<p>CAMPO_ABIERTO = :campo_abierto Es un símbolo para representar el sistema de gestión en campo abierto</p>
 </li></ul>
 
+<h2 id="label-Procedimientos">Procedimientos</h2>
+<ul><li>
+<p>self.cuidados</p>
+</li></ul>
+
+<p>Recorremos al grupo de animales sumandoles el valor y devolviendo una copia.</p>
+
+<p>Podemos hacer esto gracias a la sobrecarga del operador suma que se encuentra en Ganado.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cuidados'>cuidados</span> <span class='lparen'>(</span><span class='id identifier rubyid_cantidad_antibiotico'>cantidad_antibiotico</span><span class='comma'>,</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ganado'>ganado</span><span class='op'>|</span> <span class='id identifier rubyid_ganado'>ganado</span> <span class='op'>+</span> <span class='id identifier rubyid_cantidad_antibiotico'>cantidad_antibiotico</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+</code></pre>
+<ul><li>
+<p>self.reproduccion</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reproduccion'>reproduccion</span> <span class='lparen'>(</span><span class='id identifier rubyid_dias'>dias</span><span class='comma'>,</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ganado'>ganado</span><span class='op'>|</span> <span class='id identifier rubyid_ganado'>ganado</span><span class='period'>.</span><span class='id identifier rubyid_edad'>edad</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_dias'>dias</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Es un procedimiento para establecer la reproducción de los animales.</p>
+
+<p>En este procedimiento se comparan los días con la edad del ganado.</p>
+
 <pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
-  <span class='kw'>class</span> <span class='const'>Funcion</span>
-    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:vida</span><span class='comma'>,</span> <span class='symbol'>:cuidados</span><span class='comma'>,</span> <span class='symbol'>:reproduccion</span>
-    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_vida'>vida</span><span class='comma'>,</span> <span class='id identifier rubyid_cuidados'>cuidados</span><span class='comma'>,</span> <span class='id identifier rubyid_reproduccion'>reproduccion</span><span class='rparen'>)</span>
-      <span class='ivar'>@vida</span> <span class='op'>=</span> <span class='id identifier rubyid_vida'>vida</span>
-      <span class='ivar'>@cuidados</span> <span class='op'>=</span> <span class='id identifier rubyid_cuidados'>cuidados</span>
-      <span class='ivar'>@reproduccion</span> <span class='op'>=</span> <span class='id identifier rubyid_reproduccion'>reproduccion</span>
+  <span class='kw'>module</span> <span class='const'>Funcion</span>
+    <span class='const'>CONDICIONES_VIDA</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>campo abierto</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>establo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='const'>JAULA</span> <span class='op'>=</span> <span class='symbol'>:jaula</span>
+    <span class='const'>CAMPO_ABIERTO</span> <span class='op'>=</span> <span class='symbol'>:campo_abierto</span>
+    <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cuidados'>cuidados</span> <span class='lparen'>(</span><span class='id identifier rubyid_cantidad_antibiotico'>cantidad_antibiotico</span><span class='comma'>,</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ganado'>ganado</span><span class='op'>|</span> <span class='id identifier rubyid_ganado'>ganado</span> <span class='op'>+</span> <span class='id identifier rubyid_cantidad_antibiotico'>cantidad_antibiotico</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reproduccion'>reproduccion</span> <span class='lparen'>(</span><span class='id identifier rubyid_dias'>dias</span><span class='comma'>,</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_grupo'>grupo</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ganado'>ganado</span><span class='op'>|</span> <span class='id identifier rubyid_ganado'>ganado</span><span class='period'>.</span><span class='id identifier rubyid_edad'>edad</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_dias'>dias</span> <span class='rbrace'>}</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
@@ -165,6 +194,67 @@
   <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Identificador de la granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nNombre de la granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nombre'>nombre</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nTipo de granja: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tipo'>tipo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nDescripción: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_descripcion'>descripcion</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span>
 </code></pre>
+
+<h1 id="label-Clase+Ganadera">Clase Ganadera</h1>
+
+<p>Clase heredada de datos para representar los datos de una granja ganadera.</p>
+
+<h2 id="label-Atributos+de+instancia">Atributos de instancia</h2>
+<ul><li>
+<p>tipo_ganado: Contiene el tipo de ganado que se encuentra en la granja (bovino, ovino, caprino o porcino).</p>
+</li><li>
+<p>destino: Contiene el destino del animal (leche, sacrificio).</p>
+</li><li>
+<p>numero_animales: Contiene el numero de animales de la granja</p>
+</li><li>
+<p>precio_unitario: Contiene el precio unitario de los animales.</p>
+</li><li>
+<p>precio_venta: Contiene el precio de venta de los animales</p>
+</li><li>
+<p>censo: Contiene los animales de la granja. Es un array de tipo Ganado.</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
+  <span class='kw'>class</span> <span class='const'>Ganadera</span> <span class='op'>&lt;</span> <span class='const'>Datos</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:tipo_ganado</span><span class='comma'>,</span> <span class='symbol'>:destino</span><span class='comma'>,</span> <span class='symbol'>:numero_animales</span><span class='comma'>,</span> <span class='symbol'>:precio_unitario</span><span class='comma'>,</span> <span class='symbol'>:precio_venta</span><span class='comma'>,</span> <span class='symbol'>:censo</span>
+
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_nombre'>nombre</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo'>tipo</span><span class='comma'>,</span> <span class='id identifier rubyid_descripcion'>descripcion</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo_ganado'>tipo_ganado</span><span class='comma'>,</span> <span class='id identifier rubyid_destino'>destino</span><span class='comma'>,</span> <span class='id identifier rubyid_numero_animales'>numero_animales</span><span class='comma'>,</span> <span class='id identifier rubyid_precio_unitario'>precio_unitario</span><span class='comma'>,</span> <span class='id identifier rubyid_precio_venta'>precio_venta</span><span class='comma'>,</span> <span class='id identifier rubyid_censo'>censo</span><span class='rparen'>)</span> 
+      <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_nombre'>nombre</span><span class='comma'>,</span> <span class='id identifier rubyid_tipo'>tipo</span><span class='comma'>,</span> <span class='id identifier rubyid_descripcion'>descripcion</span><span class='rparen'>)</span>
+      <span class='ivar'>@tipo_ganado</span> <span class='op'>=</span> <span class='id identifier rubyid_tipo_ganado'>tipo_ganado</span>
+      <span class='ivar'>@destino</span> <span class='op'>=</span> <span class='id identifier rubyid_destino'>destino</span>
+      <span class='ivar'>@numero_animales</span> <span class='op'>=</span> <span class='id identifier rubyid_numero_animales'>numero_animales</span>
+      <span class='ivar'>@precio_unitario</span> <span class='op'>=</span> <span class='id identifier rubyid_precio_unitario'>precio_unitario</span>
+      <span class='ivar'>@precio_venta</span> <span class='op'>=</span> <span class='id identifier rubyid_precio_venta'>precio_venta</span>
+      <span class='ivar'>@censo</span> <span class='op'>=</span> <span class='id identifier rubyid_censo'>censo</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-M-C3-A9todos+de+instancia">Métodos de instancia</h2>
+
+<h3 id="label-M-C3-A9todo+to_s">Método to_s</h3>
+
+<p>Método para obtener una cadena con la información de la granja ganadera correctamente formateada.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span> 
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='kw'>super</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nTipo de ganado: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@tipo_ganado</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nDestino: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@destino</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nNúmero de animales: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@numero_animales</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nPrecio unitario: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@precio_unitario</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nPrecio de venta: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@precio_venta</span><span class='embexpr_end'>}</span><span class='tstring_content'>\nCenso: [animal id: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_censo'>censo</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_copycenso'>copycenso</span> <span class='op'>=</span> <span class='ivar'>@censo</span>
+  <span class='id identifier rubyid_copycenso'>copycenso</span><span class='period'>.</span><span class='id identifier rubyid_drop'>drop</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_element'>element</span><span class='op'>|</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, animal id: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>En este método lo más destacable es el censo, donde se muestra el id de los animales que son introducidos en la granja.</p>
+
+<h2 id="label-M-C3-B3dulo+enumerable">Módulo enumerable</h2>
+
+<p>La clase Ganadera para que sea enumerable se necesitan los siguientes pasos:</p>
+<ul><li>
+<p>Incluirlo <code>ruby include Enumerable </code></p>
+</li><li>
+<p>Método each <code>ruby def each   yield @numero_animales   yield @precio_unitario   yield @precio_venta end </code></p>
+</li></ul>
 
 <h1 id="label-Clase+Animal">Clase Animal</h1>
 
@@ -284,52 +374,22 @@
 <p>Método usando el módulo comparable usado para poder comparar al ganado por su edad.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_edad'>edad</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_edad'>edad</span><span class='period'>.</span><span class='id identifier rubyid_peso'>peso</span>
+  <span class='kw'>return</span> <span class='ivar'>@edad</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_edad'>edad</span><span class='period'>.</span><span class='id identifier rubyid_peso'>peso</span>
 <span class='kw'>end</span>
 </code></pre>
 
-<h1 id="label-Module+Funcion">Module Funcion</h1>
+<h3 id="label-2B">+</h3>
 
-<p>Módulo para representar las funcionalidades de una granja mediante un módulo.</p>
+<p>Sobrecarga del operador + de objeto más un valor en la que se devuleve una copia de un objeto Ganado.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'><span class='object_link'><a href="Farm.html" title="Farm (module)">Farm</a></span></span>
-  <span class='kw'>module</span> <span class='const'>Funcion</span>
-  <span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='op'>+</span><span class='lparen'>(</span><span class='id identifier rubyid_valor'>valor</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'>Ganado</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@id</span><span class='comma'>,</span> <span class='ivar'>@edad</span> <span class='op'>+</span> <span class='id identifier rubyid_valor'>valor</span><span class='comma'>,</span> <span class='ivar'>@sexo</span><span class='comma'>,</span> <span class='ivar'>@peso</span><span class='comma'>,</span> <span class='ivar'>@raza</span><span class='comma'>,</span> <span class='ivar'>@aprovechamiento</span><span class='comma'>,</span> <span class='ivar'>@alimentacion</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
-
-<h2 id="label-Constantes">Constantes</h2>
-
-<pre class="code ruby"><code class="ruby"><span class='const'>CONDICIONES_VIDA</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>campo abierto</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>establo</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-</code></pre>
-
-<p>Constante para representar las condiciones de vida (campo abierto, establo)</p>
-
-<h2 id="label-Funciones">Funciones</h2>
-
-<h3 id="label-cuidados">cuidados</h3>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cuidados'>cuidados</span> <span class='lparen'>(</span><span class='id identifier rubyid_estado'>estado</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_estado'>estado</span>
-<span class='kw'>end</span>
-</code></pre>
-
-<p>Es un procedimiento para establecer los cuidados de los animales.</p>
-
-<p>Tiene que ser self para que sea propio del módulo.</p>
-
-<h3 id="label-reproduccion">reproduccion</h3>
-
-<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reproduccion'>reproduccion</span> <span class='lparen'>(</span><span class='id identifier rubyid_estado'>estado</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_estado'>estado</span>
-<span class='kw'>end</span>
-</code></pre>
-
-<p>Es un procedimiento para establecer la reproducción de los animales.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Dec 16 18:24:19 2021 by
+  Generated on Thu Jan 13 12:05:52 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
