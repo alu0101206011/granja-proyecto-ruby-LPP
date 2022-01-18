@@ -21,9 +21,8 @@ RSpec.describe Farm do
         granja = @granja_1
         @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
           beneficio granja
-          
         end    
-           
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nBeneficios: 54.44\n\n")
       end
     end
   end

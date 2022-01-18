@@ -11,10 +11,10 @@ module Farm
     # @param [integer] id Identificador de la funcionalidad
     # @param [Farm::DSLFuncionalidades] block bloque dado para meter la información en la clase
     def initialize(id, &block)
-      @id = id
+      @id = id.to_s
       @beneficios = []
       @bienestares = []
-      @productos = []
+      @productividades = []
 
       if block_given?  
         if block.arity == 1
@@ -32,7 +32,18 @@ module Farm
 
     # Método para formatear la información de la clase
     def to_s
-
+      output = @id
+      output << "\n#{'=' * @id.size}\n\n"
+      if (!@beneficios.empty?) 
+        output << "Beneficios: #{@beneficios.join(', ')}\n\n"
+      end
+      if (!@bienestares.empty?) 
+        output << "Diferentes bienestares: #{@ejemplares.join(', ')}\n\n"
+      end
+      if (!@productividades.empty?) 
+        output << "Diferentes productividades: #{@productividades.join(', ')}\n\n"
+      end
+      output      
     end
   end
 end
