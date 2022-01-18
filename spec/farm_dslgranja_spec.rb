@@ -1,8 +1,6 @@
 require 'spec_helper'
 require './lib/farm/dslgranja'
 
-
-
 RSpec.describe Farm do
   describe Farm::DSLGranja do 
     context "Atributos de la clase DSLGranja" do
