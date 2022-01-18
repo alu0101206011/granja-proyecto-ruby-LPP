@@ -1,8 +1,8 @@
 require 'spec_helper'
-require './lib/farm/dslfuncionalidades'
+require './lib/farm/dslfuncionalidad'
 
 RSpec.describe Farm do
-  describe Farm::DSLFuncionalidades do 
+  describe Farm::DSLFuncionalidad do 
     before :each do
       @granja1 = Farm::DSLGranja.new(12345678) do
         dato "Pollos muertos",
@@ -22,8 +22,8 @@ RSpec.describe Farm do
     end      
     context "Atributos de la clase DSLFuncionalidad" do
       it "Tiene una clase para almacenar las funcionalidades de la granja" do
-        @funcionalidad = Farm::DSLFuncionalidades.new(12345678)
-        expect(@funcionalidad).to be_instance_of(Farm::DSLFuncionalidades)
+        @funcionalidad = Farm::DSLFuncionalidad.new(12345678)
+        expect(@funcionalidad).to be_instance_of(Farm::DSLFuncionalidad)
       end
 
       it "Tiene un método para calcular el beneficio de una granja" do

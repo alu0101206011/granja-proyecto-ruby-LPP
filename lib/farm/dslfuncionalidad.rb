@@ -1,17 +1,20 @@
+require './lib/farm/funcion'
+
 # @author Anabel Díaz Labrador
 # Gema Farm
 module Farm
-  # Clase DSLFuncionalidades
+  # Clase DSLFuncionalidad
   # Clase para representar las funcionalidades con DSL
-  class DSLFuncionalidades
+  class DSLFuncionalidad
+    include Funcion
     # Constructor
     # @param [integer] id Identificador de la funcionalidad
     # @param [Farm::DSLFuncionalidades] block bloque dado para meter la información en la clase
     def initialize(id, &block)
       @id = id
-      @beneficio = []
-      @bienestar = []
-      @producto = []
+      @beneficios = []
+      @bienestares = []
+      @productos = []
 
       if block_given?  
         if block.arity == 1
@@ -21,6 +24,11 @@ module Farm
         end
       end
     end
+
+    def beneficio (granja)
+      #@beneficios << Farm::Funcion::beneficio(granja)
+    end
+
 
     # Método para formatear la información de la clase
     def to_s
