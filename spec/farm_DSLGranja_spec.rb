@@ -6,7 +6,7 @@ require './lib/farm/dslgranja'
 RSpec.describe Farm do
   describe Farm::DSLGranja do 
     before :each do
-      @granja_1 = Farm::DSLGranja.new() do
+      @granja_1 = Farm::DSLGranja.new(12345678) do
 
       end
     end
@@ -17,11 +17,11 @@ RSpec.describe Farm do
       
       it "Tiene un método para los datos"  do
         @granja1 = Farm::DSLGranja.new(12345678) do
-          datos "Pollos muertos",
+          dato "Pollos muertos",
           :descripcion => "PyME - Pequeña y mediana empresa",
           :tipo => :pollos
         end
-        expect(@granja1)
+        expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa)\n\n")
       end
     end
 
