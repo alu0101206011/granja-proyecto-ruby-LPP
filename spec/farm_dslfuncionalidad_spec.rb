@@ -4,21 +4,12 @@ require './lib/farm/dslfuncionalidad'
 RSpec.describe Farm do
   describe Farm::DSLFuncionalidad do 
     before :each do
-      @granja1 = Farm::DSLGranja.new(12345678) do
-        dato "Pollos muertos",
-        :descripcion => "PyME - Pequeña y mediana empresa",
-        :tipo => :pollos
-        ejemplar "12345678-00000001",
-        :edad => 365,
-        :peso => 700.2,
-        :precio_compra => 4.25,
-        :precio_venta => 4.75
-        ejemplar "12345678-00000002",
-        :edad => 465,
-        :peso => 1200.2,
-        :precio_compra => 1.25,
-        :precio_venta => 2.75
-      end      
+      @ganado1 = Farm::Ganado.new(5, 1215, "F", 34246, "ovino", "leche", "herbívoro")
+      @ganado2 = Farm::Ganado.new(6, 1245, "M", 3999, "ovino", "sacrificio", "herbívoro")
+      @ganado3 = Farm::Ganado.new(7, 992, "M", 35353, "ovino", "sacrificio", "herbívoro")
+      @ganado4 = Farm::Ganado.new(8, 2003, "F", 3400, "ovino", "leche", "herbívoro")
+      @grupo_ovino = [@ganado1, @ganado2, @ganado3, @ganado4]
+      @granja_1 = Farm::Ganadera.new(1, "Granja Labrador", "ganadera", "Granja que tiene ovejas situada al norte de Tenerife.", "ovino", "sacrificio", 4, 6.7, 20.30, @grupo_ovino)
     end      
     context "Atributos de la clase DSLFuncionalidad" do
       it "Tiene una clase para almacenar las funcionalidades de la granja" do
@@ -27,9 +18,12 @@ RSpec.describe Farm do
       end
 
       it "Tiene un método para calcular el beneficio de una granja" do
-        funcionalidad = Farm::DSLFuncionalidad.new(12345678) do
-          beneficio @granja_1
-        end        
+        granja = @granja_1
+        @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
+          beneficio granja
+          
+        end    
+           
       end
     end
   end
