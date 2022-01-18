@@ -33,6 +33,9 @@ module Farm
       @bienestares << Farm::Funcion::bienestar(granja, condicion)
     end
 
+    def productividad (granja, condicion)
+      @bienestares << Farm::Funcion::productividad(granja, condicion)
+    end
     # Método para formatear la información de la clase
     def to_s
       output = @id

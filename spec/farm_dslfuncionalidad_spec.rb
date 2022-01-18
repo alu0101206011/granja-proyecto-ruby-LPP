@@ -38,7 +38,7 @@ RSpec.describe Farm do
         @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
           productividad granja, Farm::Funcion::CAMPO_ABIERTO
         end    
-        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes bienestares: 45\n\n")
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes bienestares: 2\n\n")
       end
     end
   end
