@@ -28,9 +28,9 @@ RSpec.describe Farm do
       it "Tiene un método para calcular el bienestar de una granja" do
         granja = @granja_1
         @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
-          bienestar granja
+          bienestar granja, Farm::Funcion::CAMPO_ABIERTO
         end    
-        expect(@funcionalidad.to_s).to eq("3214\n====\n\nBeneficios: 54.44\n\n")
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes bienestares: 45\n\n")
       end
     end
   end

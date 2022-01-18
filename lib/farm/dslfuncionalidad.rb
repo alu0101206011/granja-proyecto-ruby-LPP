@@ -29,6 +29,9 @@ module Farm
       @beneficios << Farm::Funcion::beneficio(granja)
     end
 
+    def bienestar (granja, condicion)
+      @bienestares << Farm::Funcion::bienestar(granja, condicion)
+    end
 
     # Método para formatear la información de la clase
     def to_s
@@ -38,7 +41,7 @@ module Farm
         output << "Beneficios: #{@beneficios.join(', ')}\n\n"
       end
       if (!@bienestares.empty?) 
-        output << "Diferentes bienestares: #{@ejemplares.join(', ')}\n\n"
+        output << "Diferentes bienestares: #{@bienestares.join(', ')}\n\n"
       end
       if (!@productividades.empty?) 
         output << "Diferentes productividades: #{@productividades.join(', ')}\n\n"
