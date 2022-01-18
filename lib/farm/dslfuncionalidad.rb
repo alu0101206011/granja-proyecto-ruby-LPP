@@ -26,16 +26,23 @@ module Farm
     end
 
     def beneficio (granja)
-      @beneficios << Farm::Funcion::beneficio(granja)
+      beneficio = "De la granja con id " + granja.id.to_s
+      beneficio << ": " + Farm::Funcion::beneficio(granja).to_s
+      @beneficios << beneficio
     end
 
     def bienestar (granja, condicion)
-      @bienestares << Farm::Funcion::bienestar(granja, condicion)
+      bienestar = "De la granja con id " + granja.id.to_s
+      bienestar << ": " + Farm::Funcion::bienestar(granja, condicion).to_s
+      @bienestares << bienestar
     end
 
     def productividad (granja, condicion)
-      @bienestares << Farm::Funcion::productividad(granja, condicion)
+      productividad = "De la granja con id " + granja.id.to_s
+      productividad << ": " + Farm::Funcion::productividad(granja, condicion).to_s
+      @productividades << productividad
     end
+
     # Método para formatear la información de la clase
     def to_s
       output = @id

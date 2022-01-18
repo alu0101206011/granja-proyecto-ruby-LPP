@@ -22,7 +22,7 @@ RSpec.describe Farm do
         @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
           beneficio granja
         end    
-        expect(@funcionalidad.to_s).to eq("3214\n====\n\nBeneficios: 54.44\n\n")
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nBeneficios: De la granja con id 1: 54.44\n\n")
       end
 
       it "Tiene un método para calcular el bienestar de una granja" do
@@ -30,7 +30,7 @@ RSpec.describe Farm do
         @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
           bienestar granja, Farm::Funcion::CAMPO_ABIERTO
         end    
-        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes bienestares: 45\n\n")
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes bienestares: De la granja con id 1: 45\n\n")
       end
 
       it "Tiene un método para calcular la productividad de una granja" do
@@ -38,7 +38,18 @@ RSpec.describe Farm do
         @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
           productividad granja, Farm::Funcion::CAMPO_ABIERTO
         end    
-        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes bienestares: 2\n\n")
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes productividades: De la granja con id 1: 2\n\n")
+      end
+
+      it "Se obtiene una cadena con la información de las funcionalidades correctamente formateada" do
+        granja = @granja_1
+        @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
+          beneficio granja
+          bienestar granja, :condiciones => Farm::Funcion::CAMPO_ABIERTO
+          productividad granja, :condiciones => Farm::Funcion::CAMPO_ABIERTO
+          
+        end    
+        expect(@funcionalidad.to_s).to eq("3214\n====\n\nBeneficios: De la granja con id 1: 54.44\n\nDiferentes bienestares: De la granja con id 1: 22\n\nDiferentes productividades: De la granja con id 1: 2\n\n")
       end
     end
   end
