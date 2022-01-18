@@ -23,6 +23,17 @@ RSpec.describe Farm do
         end
         expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa)\n\n")
       end
+
+      it "Tiene un método para los ejemplares" do
+        @granja1 = Farm::DSLGranja.new(12345678) do
+          ejemplar "12345678-00000001",
+          :edad => 365,
+          :peso => 700.2,
+          :precio_compra => 4.25,
+          :precio_venta => 4.75
+        end
+        expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa)\n\n")
+      end
     end
 
   end
