@@ -15,7 +15,7 @@ RSpec.describe Farm do
           :descripcion => "PyME - Pequeña y mediana empresa",
           :tipo => :pollos
         end
-        expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa)\n\n")
+        expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa) (pollos)\n\n")
       end
 
       it "Tiene un método para los ejemplares" do
@@ -26,7 +26,7 @@ RSpec.describe Farm do
           :precio_compra => 4.25,
           :precio_venta => 4.75
         end
-        expect(@granja1.to_s).to eq("12345678\n========\n\nEjemplares: 12345678-00000001 (365)\n\n")
+        expect(@granja1.to_s).to eq("12345678\n========\n\nEjemplares: 12345678-00000001 (365) (700.2) (4.25) (4.75)\n\n")
       end
 
       it "Se obtiene una cadena con la información de la granja correctamente formateada" do
@@ -45,7 +45,7 @@ RSpec.describe Farm do
           :precio_compra => 1.25,
           :precio_venta => 2.75
         end
-        expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa)\n\nEjemplares: 12345678-00000001 (365), 12345678-00000002 (465)\n\n")
+        expect(@granja1.to_s).to eq("12345678\n========\n\nDatos: Pollos muertos (PyME - Pequeña y mediana empresa) (pollos)\n\nEjemplares: 12345678-00000001 (365) (700.2) (4.25) (4.75), 12345678-00000002 (465) (1200.2) (1.25) (2.75)\n\n")
       end
     end
 

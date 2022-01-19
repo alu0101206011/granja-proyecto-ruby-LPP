@@ -21,19 +21,19 @@ module Farm
       end
     end
 
-    def dato (texto, descripcion = {}, tipo = {})
+    def dato (texto, opciones = {})
       dato = texto
-      dato << " (#{descripcion[:descripcion]})" if descripcion[:descripcion]
-      dato << " (#{tipo[:tipo]})" if tipo[:tipo]
+      dato += " (#{opciones[:descripcion]})" if opciones[:descripcion]
+      dato += " (#{opciones[:tipo]})" if opciones[:tipo]
       @datos << dato      
     end
 
-    def ejemplar (texto, edad = {}, peso = {}, precio_compra = {}, precio_venta = {})
+    def ejemplar (texto, opciones = {})
       ejemplar = texto
-      ejemplar << " (#{edad[:edad]})" if edad[:edad]
-      ejemplar << " (#{peso[:peso]})" if peso[:peso]
-      ejemplar << " (#{precio_compra[:precio_compra]})" if precio_compra[:precio_compra]
-      ejemplar << " (#{precio_venta[:precio_venta]})" if precio_venta[:precio_venta]
+      ejemplar += " (#{opciones[:edad]})" if opciones[:edad]
+      ejemplar += " (#{opciones[:peso]})" if opciones[:peso]
+      ejemplar += " (#{opciones[:precio_compra]})" if opciones[:precio_compra]
+      ejemplar += " (#{opciones[:precio_venta]})" if opciones[:precio_venta]
       @ejemplares << ejemplar      
     end
 
