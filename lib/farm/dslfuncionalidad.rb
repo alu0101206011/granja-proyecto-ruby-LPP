@@ -25,22 +25,33 @@ module Farm
       end
     end
 
+    # Método para introducir los beneficios
     def beneficio (granja)
       beneficio = "De la granja con id " + granja.id.to_s
       beneficio << ": " + Farm::Funcion::beneficio(granja).to_s
       @beneficios << beneficio
     end
 
+    # Métodos para introducir el bienestar de los animales en la granja
     def bienestar (granja, condicion)
-      bienestar = "De la granja con id " + granja.id.to_s
-      bienestar << ": " + Farm::Funcion::bienestar(granja, condicion).to_s
-      @bienestares << bienestar
+      if (condicion)
+        bienestar = "De la granja con id " + granja.id.to_s
+        bienestar << ": " + Farm::Funcion::bienestar(granja, condicion).to_s
+        @bienestares << bienestar
+      else
+        raise "Debe haber una condicion de vida para los animales."
+      end
     end
 
+    # Método para introducir la productividad
     def productividad (granja, condicion)
-      productividad = "De la granja con id " + granja.id.to_s
-      productividad << ": " + Farm::Funcion::productividad(granja, condicion).to_s
-      @productividades << productividad
+      if (condicion)
+        productividad = "De la granja con id " + granja.id.to_s
+        productividad << ": " + Farm::Funcion::productividad(granja, condicion).to_s
+        @productividades << productividad
+      else
+        raise "Debe haber una condicion de vida para los animales."
+      end
     end
 
     # Método para formatear la información de la clase

@@ -12,15 +12,16 @@ module Farm
       @datos = []
       @ejemplares = []
 
-      if block_given?  
+      if block_given?
         if block.arity == 1
           yield self
         else
-        instance_eval(&block) 
+          instance_eval(&block) 
         end
       end
     end
 
+    # Método para introducir datos
     def dato (texto, opciones = {})
       dato = texto
       dato += " (#{opciones[:descripcion]})" if opciones[:descripcion]
@@ -28,6 +29,7 @@ module Farm
       @datos << dato      
     end
 
+    # Método para introducir ejemplares
     def ejemplar (texto, opciones = {})
       ejemplar = texto
       ejemplar += " (#{opciones[:edad]})" if opciones[:edad]
@@ -37,6 +39,7 @@ module Farm
       @ejemplares << ejemplar      
     end
 
+    # Método para formatear la información de la clase.
     def to_s
       output = @id
       output << "\n#{'=' * @id.size}\n\n"

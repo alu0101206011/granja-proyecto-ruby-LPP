@@ -35,7 +35,7 @@ RSpec.describe Farm do
 
       it "Tiene un método para calcular la productividad de una granja" do
         granja = @granja_1
-        @funcionalidad = Farm::DSLFuncionalidad.new(3214) do 
+        @funcionalidad = Farm::DSLFuncionalidad.new(3214) do
           productividad granja, Farm::Funcion::CAMPO_ABIERTO
         end    
         expect(@funcionalidad.to_s).to eq("3214\n====\n\nDiferentes productividades: De la granja con id 1: 2\n\n")
